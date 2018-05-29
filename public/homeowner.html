@@ -12,10 +12,43 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 <body background="../images/background3blur.jpg">
-    <center><h1>Welcome</h1>
-    <img src="../images/logo3.png" id="home-logo">
+    <center>
+            <form class="col s12" id="homeownerLogin">
+                    <img src="../images/logo3.png" id="formLogo"><span class="card-title">Welcome back!</span>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="Email Address" id="homeownerEmail" type="email" class="validate">
+                        <label for="homeownerEmail"></label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input placeholder="Password" id="homeownerPassword" type="password" class="validate">
+                        <label for="homeownerPassword"></label>
+                      </div>
+                    </div>
+                    <a class="waves-effect waves-light btn" id="homeownerSignIn">sign in</a>
+                  </form>
+                  <br>
+            <form class="col s12" id="homeownerPost">
+                        <img src="../images/logo3.png" id="formLogo"><span class="card-title">Post a Job</span>
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <input placeholder="Street Address" id="contractorAddress" type="text" class="validate">
+                        <label for="contractorAddress"></label>
+                      </div>
+                      <div class="input-field col s3">
+                            <input placeholder="City" id="contractorCity" type="text" class="validate">
+                            <label for="contractorCity"></label>
+                      </div>
+                      <div class="input-field col s3">
+                            <input placeholder="ZIP Code" id="contractorZip" type="text" class="validate">
+                            <label for="contractorZip"></label>  
+                      </div>
+                    </div>
+                  </form>
     </center>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../javascript/app.js"></script>
 </body>
 </html>
