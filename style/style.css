@@ -1,0 +1,104 @@
+#home-logo  {
+    height: 30%;
+    width: 30%;
+}
+
+
+body    {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    font-family: 'Quicksand', sans-serif;
+    color: #646464;
+}
+
+h1{
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 0%;
+    padding-bottom: -1%;
+}
+
+#homeDiv    {
+    height: 550px;
+    width: 30%;
+    margin-top: 5%;
+    opacity: 0.9;
+}
+
+#homePic    {
+    width: 90%;
+    height: 58%;
+    margin-bottom: 1%;
+}
+
+.waves-effect   {
+    background-color: #fe855b;
+    color: #646464;
+    font-weight: bold;
+}
+
+#homeownerButton    {
+    width: 95%;
+    margin-bottom: 3%;
+    font-size: 18px;
+}
+
+#contractorButton   {
+    width: 95%;
+    font-size: 18px;
+}
+
+#signupButton   {
+    width: 95%;
+    font-size: 18px;
+}
+
+#homeDivOr  {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+
+#signupDiv  {
+    width: 35%;
+    margin-top: 2%;
+    opacity: 0.9;
+}
+
+#homeownerSignUp {
+    margin: 1%;
+    width: 98%;
+}
+
+#contractorSignUp   {
+    margin: 1%;
+    margin-top: 0%;
+    width: 98%;
+}
+
+#signupTitle    {
+    font-size: 50px;
+    margin-bottom: 0%;
+}
+
+#homeownerForm  {
+    background-color: white;
+    margin: 0rem;
+    width: 80%;
+    opacity: 0.9;
+}
+
+#submitHomeowner    {
+    margin: 2%;
+    width: 20%;
+}
+
+#contractorForm  {
+    background-color: white;
+    margin: 0rem;
+    width: 80%;
+    opacity: 0.9;
+}
