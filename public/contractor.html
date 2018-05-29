@@ -12,8 +12,23 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 <body background="../images/background4blur.jpg">
-    <center><h1>Welcome</h1>
-    <img src="../images/logo3.png" id="home-logo">
+    <center>
+        <form class="col s12" id="contractorLogin">
+                    <img src="../images/logo3.png" id="formLogo"><span class="card-title">Welcome back!</span>
+                    <div class="row">
+                      <div class="input-field col s12">
+                            <input placeholder="Email Address" id="contractorEmail" type="email" class="validate">
+                        <label for="contractorEmail"></label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input placeholder="Password" id="contractorPassword" type="password" class="validate">
+                        <label for="contractorPassword"></label>
+                      </div>
+                    </div>
+                    <a class="waves-effect waves-light btn" id="contractorSignIn">sign in</a>
+        </form>
     </center>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascript/app.js"></script>

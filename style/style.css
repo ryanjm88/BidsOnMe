@@ -140,3 +140,15 @@ h1{
     margin: 2%;
     width: 20%;
 }
+
+#contractorLogin    {
+    background-color: white;
+    margin: 0rem;
+    width: 80%;
+    opacity: 0.9;
+}
+
+#contractorSignIn   {
+    margin: 2%;
+    width: 20%;
+}
