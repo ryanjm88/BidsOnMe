@@ -27,5 +27,8 @@ $(document).ready(function()    {
     $("#homeownerSignIn").on("click", function()    {
         $("#homeownerPost").show();
         $("#homeownerLogin").hide();
-    })
+    });
+
+    $('.dropdown-trigger').dropdown();
+    console.log('app.js loaded')
 })
