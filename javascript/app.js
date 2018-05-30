@@ -20,5 +20,12 @@ $(document).ready(function()    {
     $("#contractorSignUp").on("click", function(event)   {
         $("#homeownerForm").hide();
         $("#contractorForm").show();
+    });
+
+    $("#homeownerPost").hide();
+
+    $("#homeownerSignIn").on("click", function()    {
+        $("#homeownerPost").show();
+        $("#homeownerLogin").hide();
     })
 })
