@@ -23,12 +23,25 @@ $(document).ready(function()    {
     });
 
     $("#homeownerPost").hide();
+    $("#homeownerJobs").hide();
 
     $("#homeownerSignIn").on("click", function()    {
         $("#homeownerPost").show();
+        $("#homeownerJobs").show();
         $("#homeownerLogin").hide();
+        console.log($("#homeownerEmail").val().trim());
+        console.log($("#homeownerPassword").val().trim());
     });
 
-    $('.dropdown-trigger').dropdown();
-    console.log('app.js loaded')
+    $('select').formSelect();
+
+    $(document).on('click', "#postJob", function() {
+        console.log($("#jobType").val().trim());
+        console.log($("#homeownerAddress").val().trim());
+        console.log($("#homeownerCity").val().trim());
+        console.log($("#homeownerZip").val().trim());
+        console.log($("#startingBid").val().trim());
+        console.log($("#closingDate").val().trim());
+        console.log($("#jobDescription").val().trim());
+    });
 })

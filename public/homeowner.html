@@ -1,68 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BidsOnMe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="../images/logo3.png">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
+
 <body background="../images/background3blur.jpg">
     <center>
-            <form class="col s12" id="homeownerLogin">
-                    <img src="../images/logo3.png" id="formLogo"><span class="card-title">Welcome back!</span>
-                    <div class="row">
-                      <div class="input-field col s12">
-                            <input placeholder="Email Address" id="homeownerEmail" type="email" class="validate">
-                        <label for="homeownerEmail"></label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <input placeholder="Password" id="homeownerPassword" type="password" class="validate">
-                        <label for="homeownerPassword"></label>
-                      </div>
-                    </div>
-                    <a class="waves-effect waves-light btn" id="homeownerSignIn">sign in</a>
-                  </form>
-                  <br>
-            <form class="col s12" id="homeownerPost">
-                        <img src="../images/logo3.png" id="formLogo"><span class="card-title">Post a Job</span>
-                    <div class="row">
-                      <div class="input-field col s6">
-                        <input placeholder="Street Address" id="contractorAddress" type="text" class="validate">
-                        <label for="contractorAddress"></label>
-                      </div>
-                      <div class="input-field col s3">
-                            <input placeholder="City" id="contractorCity" type="text" class="validate">
-                            <label for="contractorCity"></label>
-                      </div>
-                      <div class="input-field col s3">
-                            <input placeholder="ZIP Code" id="contractorZip" type="text" class="validate">
-                            <label for="contractorZip"></label>  
-                      </div>
-                    </div>
-                    <div class="row">
-                            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-
-                            <!-- Dropdown Structure -->
-                            <ul id='dropdown1' class='dropdown-content'>
-                              <li><a href="#!">one</a></li>
-                              <li><a href="#!">two</a></li>
-                              <li class="divider" tabindex="-1"></li>
-                              <li><a href="#!">three</a></li>
-                              <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                              <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-                            </ul>
-                    </div>
-                  </form>
+        <form class="col s12" id="homeownerLogin">
+            <img src="../images/logo3.png" id="formLogo">
+            <span class="card-title">Welcome back!</span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Email Address" id="homeownerEmail" type="email" class="validate" value="">
+                    <label for="homeownerEmail"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Password" id="homeownerPassword" type="password" class="validate" value="">
+                    <label for="homeownerPassword"></label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn" id="homeownerSignIn">sign in</a>
+        </form>
+        <br>
+        <form class="col s12" id="homeownerPost">
+            <img src="../images/logo3.png" id="formLogo">
+            <span class="card-title">Post a Job</span>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Street Address" id="homeownerAddress" type="text" class="validate">
+                    <label for="homeownerAddress"></label>
+                </div>
+                <div class="input-field col s3">
+                    <input placeholder="City" id="homeownerCity" type="text" class="validate">
+                    <label for="homeownerCity"></label>
+                </div>
+                <div class="input-field col s3">
+                    <input placeholder="ZIP Code" id="homeownerZip" type="text" class="validate">
+                    <label for="homeownerZip"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="jobType">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="remodeling">Remodeling</option>
+                        <option value="hvac">HVAC</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="landscaping">Landscaping</option>
+                        <option value="painting">Painting</option>
+                    </select>
+                    <label>Job Type</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Starting Bid" id="startingBid" type="number" class="validate" value="">
+                    <label for="startingBid"></label>
+                </div>
+                <div class="input-field col s6">
+                        <label>Bid Closing Date</label>
+                    <input placeholder="Bid Closing Date" id="closingDate" type="date" class="validate" value="">
+                    <label for="startingBid"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Job Description" id="jobDescription" type="text" class="validate" value="">
+                    <label for="jobDescription"></label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn" id="postJob">post</a>
+        </form>
+        <div class="row">
+            <div class="col s12">
+                <table id="homeownerJobs">
+                        <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Item Name</th>
+                              <th>Item Price</th>
+                          </tr>
+                        </thead>
+                
+                        <tbody>
+                          <tr>
+                            <td>Alvin</td>
+                            <td>Eclair</td>
+                            <td>$0.87</td>
+                          </tr>
+                          <tr>
+                            <td>Alan</td>
+                            <td>Jellybean</td>
+                            <td>$3.76</td>
+                          </tr>
+                          <tr>
+                            <td>Jonathan</td>
+                            <td>Lollipop</td>
+                            <td>$7.00</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
     </center>
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script type="text/javascript" src="../javascript/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../javascript/app.js"></script>
 </body>
+
 </html>
