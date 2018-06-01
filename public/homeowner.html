@@ -56,13 +56,13 @@
                 <div class="input-field col s12">
                     <select id="jobType">
                         <option value="" disabled selected>Choose your option</option>
-                        <option value="plumbing">Plumbing</option>
-                        <option value="roofing">Roofing</option>
-                        <option value="remodeling">Remodeling</option>
-                        <option value="hvac">HVAC</option>
-                        <option value="electrical">Electrical</option>
-                        <option value="landscaping">Landscaping</option>
-                        <option value="painting">Painting</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="Roofing">Roofing</option>
+                        <option value="Remodeling">Remodeling</option>
+                        <option value="HVAC">HVAC</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Landscaping">Landscaping</option>
+                        <option value="Painting">Painting</option>
                     </select>
                     <label>Job Type</label>
                 </div>
@@ -73,7 +73,7 @@
                     <label for="startingBid"></label>
                 </div>
                 <div class="input-field col s6">
-                        <label>Bid Closing Date</label>
+                    <label>Bid Closing Date</label>
                     <input placeholder="Bid Closing Date" id="closingDate" type="date" class="validate" value="">
                     <label for="startingBid"></label>
                 </div>
@@ -88,34 +88,24 @@
         </form>
         <div class="row">
             <div class="col s12">
-                <table id="homeownerJobs">
+                <div class="card" id="homeownerJobsCard">
+                    <span class="card-title" id="jobsTableTitle">
+                        <img src="../images/logo3.png" id="formLogo2">Jobs Posted</span>
+                    <table class="striped" id="homeownerJobs">
                         <thead>
-                          <tr>
-                              <th>Name</th>
-                              <th>Item Name</th>
-                              <th>Item Price</th>
-                          </tr>
+                            <tr>
+                                <th>Address</th>
+                                <th>Job Type</th>
+                                <th>Job Description</th>
+                                <th>Winning Contractor</th>
+                                <th>Closing Bid</th>
+                            </tr>
                         </thead>
-                
-                        <tbody>
-                          <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                          </tr>
-                          <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                          </tr>
-                          <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
-                          </tr>
+                        <tbody id="jobsPosted">
                         </tbody>
                     </table>
                 </div>
+            </div>
         </div>
     </center>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

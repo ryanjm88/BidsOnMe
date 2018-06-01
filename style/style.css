@@ -176,10 +176,38 @@ h1{
     width: 20%;
 }
 
-#homeownerJobs  {
+#homeownerJobsCard  {
     background-color: white;
     margin: 0rem;
     width: 80%;
     opacity: 0.9;
     margin-top: 2%;
+}
+
+#jobsTableTitle {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#formLogo2  {
+    width: 5%;
+    height: 5%;
+    margin-top: -15px;
+    vertical-align: middle;
+    margin-right: 2%;
+}
+
+#signupDiv2  {
+    width: 35%;
+    margin-top: 2%;
+    opacity: 0.9;
+}
+
+#formLogo3  {
+    width: 10%;
+    height: 10%;
+    margin-top: -15px;
+    vertical-align: middle;
+    margin-right: 2%;
 }
