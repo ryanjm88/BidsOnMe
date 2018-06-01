@@ -34,15 +34,11 @@ router.post('/register', function (req, res) {
 	var errors = req.validationErrors();
 
 	if (errors) {
-		res.render('register', {
-			errors: errors
-		});
+		res.render('register', {errors});
 	}
 	else {
 		//checking for email and username are already taken
-		User.findOne({ username: { 
-			"$regex": "^" + username + "\\b", "$options": "i"
-	}}, function (err, user) {
+		User.findOne({ username: { "$regex": "^" + username + "\\b", "$options": "i"}}, function (err, user) {
 			User.findOne({ email: { 
 				"$regex": "^" + email + "\\b", "$options": "i"
 		}}, function (err, mail) {
@@ -54,10 +50,10 @@ router.post('/register', function (req, res) {
 				}
 				else {
 					var newUser = new User({
-						name: name,
-						email: email,
-						username: username,
-						password: password
+						name,
+						email,
+						username,
+						password
 					});
 					User.createUser(newUser, function (err, user) {
 						if (err) throw err;
