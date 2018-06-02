@@ -173,6 +173,7 @@ h1{
 
 #postJob    {
     margin: 2%;
+    margin-top: 0%;
     width: 20%;
 }
 
@@ -211,3 +212,12 @@ h1{
     vertical-align: middle;
     margin-right: 2%;
 }
+
+#availableJobsCard  {
+    background-color: white;
+    margin: 0rem;
+    width: 80%;
+    opacity: 0.9;
+    margin-top: 2%;
+}
+

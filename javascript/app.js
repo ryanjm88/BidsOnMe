@@ -1,11 +1,11 @@
-$(document).ready(function()    {
-    $("#homeownerButton").on("click", function()    {
+$(document).ready(function () {
+    $("#homeownerButton").on("click", function () {
         window.location = "homeowner.html";
     });
-    $("#contractorButton").on("click", function()   {
+    $("#contractorButton").on("click", function () {
         window.location = "contractor.html";
     });
-    $("#signupButton").on("click", function()   {
+    $("#signupButton").on("click", function () {
         window.location = "signup.html";
     });
 
@@ -13,12 +13,12 @@ $(document).ready(function()    {
     $("#contractorForm").hide();
     $("#signupDiv2").hide();
 
-    $("#homeownerSignUp").on("click", function(event)    {
+    $("#homeownerSignUp").on("click", function (event) {
         $("#contractorForm").hide();
         $("#homeownerForm").show();
     });
 
-    $("#contractorSignUp").on("click", function(event)   {
+    $("#contractorSignUp").on("click", function (event) {
         $("#homeownerForm").hide();
         $("#contractorForm").show();
     });
@@ -28,7 +28,7 @@ $(document).ready(function()    {
 
     // getting homeowner sign-up credentials
 
-    $("#submitHomeowner").on("click", function()    {
+    $("#submitHomeowner").on("click", function () {
         var first_name = $("#first_name").val().trim();
         var last_name = $("#last_name").val().trim();
         var email = $("#email").val().trim();
@@ -45,7 +45,7 @@ $(document).ready(function()    {
     });
 
     // getting contractor sign-up credentials
-    $("#submitContractor").on("click", function()    {
+    $("#submitContractor").on("click", function () {
         var contractorName = $("#contractorName").val().trim();
         var contractorEmail = $("#contractorEmail").val().trim();
         var contractorPassword = $("#contractorPassword").val().trim();
@@ -61,9 +61,9 @@ $(document).ready(function()    {
 
 
     // homeowner member sign in
-    $("#homeownerSignIn").on("click", function()    {
+    $("#homeownerSignIn").on("click", function () {
         $("#homeownerPost").show();
-        $("#homeownerJobsCard").show();
+        $("#homeownerJobsCard").hide();
         $("#homeownerLogin").hide();
         console.log($("#homeownerEmail").val().trim());
         console.log($("#homeownerPassword").val().trim());
@@ -71,8 +71,14 @@ $(document).ready(function()    {
 
     $('select').formSelect();
 
+    if ($("#jobsPosted").val == '') {
+        $("#homeownerJobsCard").hide();
+    }
+
     // homeowner new job post info
-    $(document).on('click', "#postJob", function() {
+    $(document).on('click', "#postJob", function () {
+        $("#homeownerJobsCard").show();
+
         var jobType = $("#jobType").val().trim();
         var homeownerAddress = $("#homeownerAddress").val().trim();
         var homeownerCity = $("#homeownerCity").val().trim();
@@ -80,6 +86,7 @@ $(document).ready(function()    {
         var startingBid = $("#startingBid").val().trim();
         var closingDate = $("#closingDate").val().trim();
         var jobDescription = $("#jobDescription").val().trim();
+        var jobPhoto = $("#jobPhoto").val().trim();
 
         console.log(jobType);
         console.log(homeownerAddress);
@@ -88,8 +95,22 @@ $(document).ready(function()    {
         console.log(startingBid);
         console.log(closingDate);
         console.log(jobDescription);
+        console.log(jobPhoto);
 
         // appending new job info to homeowner table
-        $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td></tr>");
+        $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td><td>" + jobPhoto + "</td></tr>");
+    });
+
+    $("#availableJobsCard").hide();
+
+    $("#contractorSignIn").on("click", function () {
+        $("#contractorLogin").hide();
+        $("#availableJobsCard").show();
+
+        var contractorEmail = $("#contractorEmail").val().trim();
+        var contractorPassword = $("#contractorPassword").val().trim();
+
+        console.log(contractorEmail);
+        console.log(contractorPassword);
     });
 })
