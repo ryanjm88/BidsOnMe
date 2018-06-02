@@ -4,10 +4,13 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
-
+var contractor;
 // Register
-router.get('/register', function (req, res) {
-	res.render('register');
+router.get('/register/:contractor', function (req, res) {
+	contractor = req.params.contractor;
+	res.render('register', {
+		contractor: JSON.parse(contractor)
+	});
 });
 
 // Login
@@ -22,6 +25,7 @@ router.post('/register', function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+	
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -50,10 +54,15 @@ router.post('/register', function (req, res) {
 				}
 				else {
 					var newUser = new User({
-						name,
-						email,
-						username,
-						password
+						name: name,
+						email: email,
+						username: username,
+						password: password,
+						contractor: contractor
+					});
+					User.createUser(newUser, function (err, user) {
+						if (err) throw err;
+						console.log(user);
 					});
 					User.createUser(newUser, function (err, user) {
 						if (err) throw err;
@@ -66,6 +75,9 @@ router.post('/register', function (req, res) {
 		});
 	}
 });
+
+
+"https://storage.googleapis.com/coding-bc-projects/BidsOnMe/water-damage.jpg"
 
 passport.use(new LocalStrategy(
 	function (username, password, done) {
