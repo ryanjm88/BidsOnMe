@@ -17,69 +17,46 @@ router.get('/home', function (req, res) {
 });
 
 // Register User
-router.post('/register', function (req, res) {
-	var name = req.body.name;
+
+router.post('/api/users', function (req, res) {
+	var first_name = req.body.first_name;
+	var last_name = req.body.last_name;
 	var email = req.body.email;
-	var username = req.body.username;
 	var password = req.body.password;
-	var password2 = req.body.password2;
 	
 
 	// Validation
-	req.checkBody('name', 'Name is required').notEmpty();
-	req.checkBody('email', 'Email is required').notEmpty();
+	req.checkBody('last_name', 'first_name is required').notEmpty();
+	req.checkBody('first_name', 'first_name is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
-	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
 	var errors = req.validationErrors();
 
-	if (errors) {
-		res.render('register', {errors});
-	}
-	else {
-		//checking for email and username are already taken
-		User.findOne({ username: { "$regex": "^" + username + "\\b", "$options": "i"}}, function (err, user) {
-			User.findOne({ email: { 
-				"$regex": "^" + email + "\\b", "$options": "i"
-		}}, function (err, mail) {
-				if (user || mail) {
-					res.render('register', {
-						user: user,
-						mail: mail
-					});
-				}
-				else {
+	console.log(errors);
+
+		//checking for email and email are already taken
 					var newUser = new User({
-						name: name,
+						first_name: first_name,
+						last_name: last_name,
 						email: email,
-						username: username,
-						password: password,
-						contractor: contractor
+						password: password
 					});
 					User.createUser(newUser, function (err, user) {
 						if (err) throw err;
-						console.log(user);
-					});
-					User.createUser(newUser, function (err, user) {
-						if (err) throw err;
-						console.log(user);
+						console.log(newUser);
 					});
          	req.flash('success_msg', 'You are registered and can now login');
 					res.redirect('/users/login');
 				}
-			});
-		});
-	}
-});
+			);
 
 
 "https://storage.googleapis.com/coding-bc-projects/BidsOnMe/water-damage.jpg"
 
 passport.use(new LocalStrategy(
-	function (username, password, done) {
-		User.getUserByUsername(username, function (err, user) {
+	function (email, password, done) {
+		User.getUserByemail(email, function (err, user) {
 			if (err) throw err;
 			if (!user) {
 				return done(null, false, { message: 'Unknown User' });

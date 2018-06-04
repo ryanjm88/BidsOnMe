@@ -41,12 +41,17 @@ $(document).ready(function() {
         .val()
         .trim()
     };
+   
     $.ajax({
-      url: "/api/users",
+      type: 'POST',
       data: JSON.stringify(newUser),
-      contentType: "application/json",
-      method: "POST"
-    });
+          contentType: 'application/json',
+                  url: '/homeUser',						
+                  success: function(data) {
+                      console.log('success');
+                      console.log(JSON.stringify(newUser));
+                  },
+              });
 
     console.log(newUser);
 
@@ -55,45 +60,56 @@ $(document).ready(function() {
     $("#signupDiv2").show();
   });
 
-  $("#submitContractor").on("click", function() {
-    var contractorName = $("#contractorName")
-      .val()
-      .trim();
-    var contractorEmail = $("#contractorEmail")
-      .val()
-      .trim();
-    var contractorPassword = $("#contractorPassword")
-      .val()
-      .trim();
+  $("#submitContractor").on("click", function(event) {
+    event.preventDefault();
+    var newUser = {
+      first_name: $("#contractorName")
+        .val()
+        .trim(),
+      last_name: $("#contractorName")
+        .val()
+        .trim(),
+      email: $("#contractorEmail")
+        .val()
+        .trim(),
+      password: $("#contractorPassword")
+        .val()
+        .trim()
+    };
 
-    console.log(contractorName);
-    console.log(contractorEmail);
-    console.log(contractorPassword);
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify(newUser),
+          contentType: 'application/json',
+                  url: '/contractorUser',						
+                  success: function(data) {
+                      console.log('success');
+                      console.log(JSON.stringify(newUser));
+                  },
+              });
 
     $("#contractorForm").hide();
     $("#signupDiv").hide();
     $("#signupDiv2").show();
   });
+
+//SIGNIN HERE!!! post passport route
+
   $("#homeownerSignIn").on("click", function() {
     $("#homeownerPost").show();
     $("#homeownerJobsCard").hide();
     $("#homeownerLogin").hide();
-    console.log(
-      $("#homeownerEmail")
-        .val()
-        .trim()
-    );
-    console.log(
-      $("#homeownerPassword")
-        .val()
-        .trim()
-    );
+
     $.ajax({
-      url: "/api/users",
+      type: 'POST',
       data: JSON.stringify(newUser),
-      contentType: "application/json",
-      method: "GET"
-    });
+          contentType: 'application/json',
+                  url: '/contractorUser',						
+                  success: function(data) {
+                      console.log('success');
+                      console.log(JSON.stringify(newUser));
+                  },
+              });
     console.log(users);
   });
 

@@ -1,23 +1,26 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
-var expressValidator = require('express-validator');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var multer = require('multer');
-var path = require('path');
+var express = require("express");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
+var exphbs = require("express-handlebars");
+var expressValidator = require("express-validator");
+var flash = require("connect-flash");
+var session = require("express-session");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var mongo = require("mongodb");
+var mongoose = require("mongoose");
+var multer = require("multer");
+var path = require("path");
 
-mongoose.connect('mongodb://mongoUser:bidsonme0@ds133241.mlab.com:33241/heroku_g7962z42');
+mongoose.connect(
+  "mongodb://mongoUser:bidsonme0@ds133241.mlab.com:33241/heroku_g7962z42"
+);
 var db = mongoose.connection;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require("./routes/index");
+var users = require("./routes/users");
+var User = require("./models/user");
 
 // Init App
 var app = express();
@@ -27,54 +30,143 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+//Create USER
+app.post("/homeUser", function(req, res) {
+  var first_name = req.body.first_name;
+  var last_name = req.body.last_name;
+  var email = req.body.email;
+  var password = req.body.password;
+
+  var newUser = new User({
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: password,
+    contractor: "false"
+  });
+  User.createUser(newUser, function(err, user) {
+    if (err) throw err;
+    console.log(newUser);
+  });
+});
+
+app.post("/contractorUser", function(req, res) {
+  var first_name = req.body.first_name;
+  var last_name = req.body.last_name;
+  var email = req.body.email;
+  var password = req.body.password;
+
+  var newUser = new User({
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: password,
+    contractor: "true"
+  });
+  User.createUser(newUser, function(err, user) {
+    if (err) throw err;
+    console.log(newUser);
+  });
+});
+
+passport.use(
+  new LocalStrategy(function(email, password, done) {
+    User.getUserByemail(email, function(err, user) {
+      if (err) throw err;
+      if (!user) {
+        return done(null, false, { message: "Unknown User" });
+      }
+
+      User.comparePassword(password, user.password, function(err, isMatch) {
+        if (err) throw err;
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, { message: "Invalid password" });
+        }
+      });
+    });
+  })
+);
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.getUserById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/users/login",
+    failureFlash: true
+  }),
+  function(req, res) {
+    res.redirect("/");
+  }
+);
+
+app.get("/logout", function(req, res) {
+  req.logout();
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/users/login");
+});
+
 // Set Static Folder
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Express Session
-app.use(session({
-    secret: 'secret',
+app.use(
+  session({
+    secret: "secret",
     saveUninitialized: true,
     resave: true
-}));
+  })
+);
 
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+app.use(
+  expressValidator({
+    errorFormatter: function(param, msg, value) {
+      var namespace = param.split("."),
+        root = namespace.shift(),
+        formParam = root;
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
+      while (namespace.length) {
+        formParam += "[" + namespace.shift() + "]";
+      }
+      return {
+        param: formParam,
+        msg: msg,
+        value: value
+      };
     }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+  })
+);
 
 // Connect Flash
 app.use(flash());
 
 // Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
   res.locals.user = req.user || null;
   next();
 });
 
-
-
-app.use('/', routes);
-app.use('/users', users);
+app.use("/", routes);
+app.use("/users", users);
 
 // Set Port
 
