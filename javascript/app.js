@@ -112,5 +112,23 @@ $(document).ready(function () {
 
         console.log(contractorEmail);
         console.log(contractorPassword);
+
+        var mongodb = require("mongodb");
+        
+        var mongo_connect = "mongodb://mongoUser:bidsonme0@ds133241.mlab.com:33241/heroku_g7962z42";
+
+        var query_data = getCollection('users').find({});
+
+$.ajax({
+  url: query_data ,
+  type: 'GET',
+  data: {
+     format: 'json'
+  },
+  dataType: 'jsonp',
+  success: function(data) {
+     console.log(data);
+  },     
+});
     });
 })
