@@ -6,16 +6,14 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 var contractor;
 // Register
-router.get('/register/:contractor', function (req, res) {
-	contractor = req.params.contractor;
-	res.render('register', {
-		contractor: JSON.parse(contractor)
-	});
-});
+
+router.get("/signup", function(req, res) {
+		res.sendFile(path.join(__dirname, "signup.html"));
+	  });
 
 // Login
-router.get('/login', function (req, res) {
-	res.render('login');
+router.get('/home', function (req, res) {
+	res.sendFile(path.join(__dirname, "home.html"));
 });
 
 // Register User
