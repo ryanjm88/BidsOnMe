@@ -1,8 +1,8 @@
-## BidsOnMe
+# BidsOnMe
 
 BidsOnMe is a contractor bidding app that allows homeowners or landloards to post a variety of home improvement projects (plumbing, roofing, electrical, renovations, etc.) with a starting bid price, which contractors can view and assess. Contractors then begin bidding down from the price initially set by the homeowner, with the lowest bidder being awarded the contract for the project.
 
-# Prerequisites
+## Prerequisites
 
 Users will need the following NPM packages:
 
@@ -14,7 +14,7 @@ Users will need the following NPM packages:
 -Mongoose
 -Passport
 
-# Usage
+## Usage
 
 Both homeowners and contractors sign up with an email account and password. This information is stored in our database, which is used for validation.
 
@@ -24,7 +24,7 @@ After submitting the job, the homeowners' job information will be posted on the 
 
 See "screenshots" directory for examples of use.
 
-# Developers
+## Developers
 
 -Garrett Collinson
 -Ryan McKenzie
