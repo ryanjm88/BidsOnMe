@@ -16,9 +16,13 @@ Users will need the following NPM packages:
 
 # Usage
 
+Both homeowners and contractors sign up with an email account and password. This information is stored in our database, which is used for validation.
+
 Once logged in, homeowners can post details about their project, such as the address, job type, initial bidding price, a bid closing date, job description, as well as a photo link.
-After submitting the job, the homeowners' job information will be posted on the contractors' page. Contractors will be able to view this information, along with the current lowest bid for the project.
-Project contracts are awarded to the contractor with the lowest bid at the time of closing set by the homeowner.
+
+After submitting the job, the homeowners' job information will be posted on the contractors' page. Contractors will be able to view this information, along with the current lowest bid for the project. Project contracts are awarded to the contractor with the lowest bid at the time of closing set by the homeowner.
+
+See "screenshots" directory for examples of use.
 
 # Developers
 
