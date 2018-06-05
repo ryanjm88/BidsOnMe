@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "author": "hristo, ryan, garrett",
   "license": "ISC",
@@ -27,8 +27,5 @@
     "passport-http": "*",
     "passport-local": "*",
     "path": "^0.12.7"
-  },
-  "engines": {
-    "node": "9.9.0"
   }
 }

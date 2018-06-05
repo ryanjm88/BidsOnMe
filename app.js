@@ -21,6 +21,7 @@ var db = mongoose.connection;
 var routes = require("./routes/index");
 var users = require("./routes/users");
 var User = require("./models/user");
+var Job = require("./models/job");
 
 // Init App
 var app = express();
@@ -69,6 +70,39 @@ app.post("/contractorUser", function(req, res) {
   });
 });
 
+app.post("/postJob", function(req, res) {
+  var jobType = req.body.jobType;
+  var homeownerAddress = req.body.homeownerAddress;
+  var homeownerCity = req.body.homeownerCity;
+  var homeownerZip = req.body.homeownerZip;
+  var startingBid = req.body.startingBid;
+  var closingDate = req.body.closingDate;
+  var jobDescription = req.body.jobDescription;
+  var jobPhoto = req.body.jobPhoto;
+  
+  var newJob = new Job({
+    jobType: jobType,
+    homeownerAddress: homeownerAddress,
+    homeownerCity: homeownerCity,
+    homeownerZip: homeownerZip,
+    startingBid: startingBid,
+    closingDate: closingDate,
+    jobDescription: jobDescription,
+    jobPhoto: jobPhoto
+  });
+  Job.createJob(newJob, function(err, newJob) {
+    if (err) throw err;
+    console.log(newJob);
+  });
+});
+
+app.post("/getJob", function(req, res){
+var id = req.body.id;
+Job.getJobById(id, function (err, user) {
+  done(err, user);
+});
+});
+
 passport.use(
   new LocalStrategy(function(email, password, done) {
     User.getUserByemail(email, function(err, user) {
@@ -103,18 +137,18 @@ app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/users/login",
+    failureRedirect: "/",
     failureFlash: true
   }),
   function(req, res) {
-    res.redirect("/");
+    res.redirect("/login");
   }
 );
 
 app.get("/logout", function(req, res) {
   req.logout();
   req.flash("success_msg", "You are logged out");
-  res.redirect("/users/login");
+  res.redirect("/");
 });
 
 // Set Static Folder

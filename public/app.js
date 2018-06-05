@@ -41,17 +41,17 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-   
+
     $.ajax({
-      type: 'POST',
+      type: "POST",
       data: JSON.stringify(newUser),
-          contentType: 'application/json',
-                  url: '/homeUser',						
-                  success: function(data) {
-                      console.log('success');
-                      console.log(JSON.stringify(newUser));
-                  },
-              });
+      contentType: "application/json",
+      url: "/homeUser",
+      success: function(data) {
+        console.log("success");
+        console.log(JSON.stringify(newUser));
+      }
+    });
 
     console.log(newUser);
 
@@ -78,39 +78,46 @@ $(document).ready(function() {
     };
 
     $.ajax({
-      type: 'POST',
+      type: "POST",
       data: JSON.stringify(newUser),
-          contentType: 'application/json',
-                  url: '/contractorUser',						
-                  success: function(data) {
-                      console.log('success');
-                      console.log(JSON.stringify(newUser));
-                  },
-              });
+      contentType: "application/json",
+      url: "/contractorUser",
+      success: function(data) {
+        console.log("success");
+        console.log(JSON.stringify(newUser));
+      }
+    });
 
     $("#contractorForm").hide();
     $("#signupDiv").hide();
     $("#signupDiv2").show();
   });
 
-//SIGNIN HERE!!! post passport route
-
-  $("#homeownerSignIn").on("click", function() {
+  $("#homeownerSignIn").on("click", function(event) {
+    event.preventDefault();
     $("#homeownerPost").show();
     $("#homeownerJobsCard").hide();
     $("#homeownerLogin").hide();
+    var logUser = {
+      email: $("#homeownerPassword")
+        .val()
+        .trim(),
+      password: $("#homeownerPassword")
+        .val()
+        .trim()
+    };
+    console.log(logUser);
 
     $.ajax({
-      type: 'POST',
-      data: JSON.stringify(newUser),
-          contentType: 'application/json',
-                  url: '/contractorUser',						
-                  success: function(data) {
-                      console.log('success');
-                      console.log(JSON.stringify(newUser));
-                  },
-              });
-    console.log(users);
+      type: "POST",
+      data: JSON.stringify(logUser),
+      contentType: "application/json",
+      url: "/login",
+      success: function(data) {
+        console.log("success");
+        console.log(JSON.stringify(logUser));
+      }
+    });
   });
 
   $("select").formSelect();
@@ -121,39 +128,44 @@ $(document).ready(function() {
   $(document).on("click", "#postJob", function() {
     $("#homeownerJobsCard").show();
 
-    var jobType = $("#jobType")
-      .val()
-      .trim();
-    var homeownerAddress = $("#homeownerAddress")
-      .val()
-      .trim();
-    var homeownerCity = $("#homeownerCity")
-      .val()
-      .trim();
-    var homeownerZip = $("#homeownerZip")
-      .val()
-      .trim();
-    var startingBid = $("#startingBid")
-      .val()
-      .trim();
-    var closingDate = $("#closingDate")
-      .val()
-      .trim();
-    var jobDescription = $("#jobDescription")
-      .val()
-      .trim();
-    var jobPhoto = $("#jobPhoto")
-      .val()
-      .trim();
+    var job = {
+      jobType: $("#jobType")
+        .val()
+        .trim(),
+      homeownerAddress: $("#homeownerAddress")
+        .val()
+        .trim(),
+      homeownerCity: $("#homeownerCity")
+        .val()
+        .trim(),
+      homeownerZip: $("#homeownerZip")
+        .val()
+        .trim(),
+      startingBid: $("#startingBid")
+        .val()
+        .trim(),
+      closingDate: $("#closingDate")
+        .val()
+        .trim(),
+      jobDescription: $("#jobDescription")
+        .val()
+        .trim(),
+      jobPhoto: $("#jobPhoto")
+        .val()
+        .trim()
+    };
+    console.log(job);
+    $.ajax({
+      type: "POST",
+      data: JSON.stringify(job),
+      contentType: "application/json",
+      url: "/postJob",
+      success: function(data) {
+        console.log("success");
+        console.log(JSON.stringify(job));
+      }
+    });
 
-    console.log(jobType);
-    console.log(homeownerAddress);
-    console.log(homeownerCity);
-    console.log(homeownerZip);
-    console.log(startingBid);
-    console.log(closingDate);
-    console.log(jobDescription);
-    console.log(jobPhoto);
 
     $("#jobsPosted").append(
       "<tr><td>" +

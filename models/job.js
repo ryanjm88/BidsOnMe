@@ -2,20 +2,21 @@ var mongoose = require("mongoose");
 // Joh Schema
 
 var JobSchema = mongoose.Schema({
-	street: { type: String },
-	city: { type: String },
-	zip: { type: String },
-	type: { type: String },
+	jobType: { type: String },
+	homeownerAddress: { type: String },
+	homeownerCity: { type: String },
+	homeownerZip: { type: String },
 	starting_bid: { type: String },
-	bidClosingDate: { type: String },
-	jobDesc: { type: String },
-	img: { data: Buffer, contentType: String }
+	startingBid: { type: String },
+	closingDate: { type: String },
+	jobDescription: { type: String },
+	jobPhoto: { type: String}
   });
 
 var Job = (module.exports = mongoose.model("Job", JobSchema));
 
-module.exports.createJob = function(JobSchema, callback) {
-      NewJob.save(callback);
+module.exports.createJob = function(newJob, callback) {
+      newJob.save(callback);
 };
 
 module.exports.getJobByJobname = function(Jobname, callback) {
@@ -24,5 +25,5 @@ module.exports.getJobByJobname = function(Jobname, callback) {
 };
 
 module.exports.getJobById = function(id, callback) {
-  Job.findById(id, callback);
+  newJob.findById(id, callback);
 };
