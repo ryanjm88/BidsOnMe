@@ -199,13 +199,6 @@ $(document).ready(function() {
       }
     });
 
-    var contractorEmail = $("#contractorEmail")
-      .val()
-      .trim();
-    var contractorPassword = $("#contractorPassword")
-      .val()
-      .trim();
-
     console.log(contractorEmail);
     console.log(contractorPassword);
   });
