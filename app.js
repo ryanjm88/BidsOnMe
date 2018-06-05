@@ -97,7 +97,7 @@ app.post("/postJob", function(req, res) {
 });
 
 app.get("/getAllJobs", function(req,res){
-  var jobType = req.body;
+  consol.log(req)
   console.log("JobType Passed in Req.body" + jobType);
   Job.find().select(jobType).exec(function (err, doc) {
     res.send(doc);
