@@ -25,7 +25,7 @@ query.exec(function (err, docs) {});
 };
 
 module.exports.getJobByjobType = function(jobType, callback) {
-  Job.findOne(jobType, callback);
+  Job.findOne(query, callback);
 };
 
 module.exports.getJobById = function(id, callback) {

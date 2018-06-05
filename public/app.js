@@ -186,15 +186,16 @@ $(document).ready(function() {
     $("#contractorLogin").hide();
     $("#availableJobsCard").show();
 
-      var jobType = "Remodeling";
+      var jobType = "Roofing";
     $.ajax({
       type: "GET",
       data: jobType,
       contentType: "application/json",
       url: "/getAllJobs",
-      success: function(data) {
+      success: function(doc) {
         console.log("success");
-        console.log(JSON.stringify(data));
+        console.log("JobType Passed:" + jobType);
+        console.log("from front to back" + JSON.stringify(doc));
       }
     });
 
