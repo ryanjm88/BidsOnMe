@@ -6,13 +6,17 @@ BidsOnMe is a contractor bidding app that allows homeowners or landloards to pos
 
 Users will need the following NPM packages:
 
--Node
--Nodemon
--Express
--Express-handlebars
--MongoDB
--Mongoose
--Passport
+* Express
+* Cookie-parser
+* Body-parser
+* Express-handlebars
+* Express-validator
+* Connect-flash
+* Express-session
+* Passport
+* Passport-local
+* MongoDB
+* Mongoose
 
 ## Usage
 
@@ -26,6 +30,6 @@ See "screenshots" directory for examples of use.
 
 ## Developers
 
--Garrett Collinson
--Ryan McKenzie
--Hristo Nikolov
+* Garrett Collinson
+* Ryan McKenzie
+* Hristo Nikolov
