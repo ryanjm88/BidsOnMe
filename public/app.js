@@ -186,7 +186,6 @@ $(document).ready(function() {
     $("#contractorLogin").hide();
     $("#availableJobsCard").show();
 
-      var jobType = "Roofing";
     $.ajax({
       type: "GET",
       data: jobType,
@@ -194,7 +193,6 @@ $(document).ready(function() {
       url: "/getAllJobs",
       success: function(doc) {
         console.log("success");
-        console.log("JobType Passed:" + jobType);
         console.log("from front to back" + JSON.stringify(doc));
       }
     });
