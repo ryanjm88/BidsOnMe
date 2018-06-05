@@ -109,13 +109,13 @@ $(document).ready(function() {
     console.log(logUser);
 
     $.ajax({
-      type: "POST",
-      data: JSON.stringify(logUser),
+      type: "GET",
+      data: email = "beep@beep.com",
       contentType: "application/json",
       url: "/login",
-      success: function(data) {
+      success: function(doc) {
         console.log("success");
-        console.log(JSON.stringify(logUser));
+        console.log(JSON.stringify(doc));
       }
     });
   });
@@ -186,7 +186,7 @@ $(document).ready(function() {
     $("#contractorLogin").hide();
     $("#availableJobsCard").show();
 
-      var jobType = "Roofing";
+    var jobType = "Roofing";
     $.ajax({
       type: "GET",
       data: jobType,

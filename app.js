@@ -29,7 +29,6 @@ var app = express();
 // BodyParser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 //Create USER
 app.post("/homeUser", function(req, res) {
@@ -70,26 +69,6 @@ app.post("/contractorUser", function(req, res) {
   });
 });
 
-// Connect Flash
-app.use(flash());
-
-// Global Vars
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  res.locals.user = req.user || null;
-  next();
-});
-
-app.get("/logout", function(req, res) {
-  consloe.log("req.flash "+req);
-  req.logout();
-  req.flash("success_msg", "You are logged out");
-  res.redirect("/");
-});
-
-
 app.post("/postJob", function(req, res) {
   var jobType = req.body.jobType;
   var homeownerAddress = req.body.homeownerAddress;
@@ -99,7 +78,7 @@ app.post("/postJob", function(req, res) {
   var closingDate = req.body.closingDate;
   var jobDescription = req.body.jobDescription;
   var jobPhoto = req.body.jobPhoto;
-  
+
   var newJob = new Job({
     jobType: jobType,
     homeownerAddress: homeownerAddress,
@@ -116,84 +95,44 @@ app.post("/postJob", function(req, res) {
   });
 });
 
-app.get("/getAllJobs", function(req,res){
+app.get("/getAllJobs", function(req, res) {
   var jobType = req.body;
-  console.log("JobType Passed in Req.body" + jobType);
-  Job.find().select(jobType).exec(function (err, doc) {
-    res.send(doc);
-    console.log(doc);
-  });
-});
-  //further operations to perform
-
-///this should be a join
-
-app.post("/getJobhome", function(req, res){
-var id = req.body.id;
-Job.getJobById(id, function (err, user) {
-  done(err, user);
-});
-});
-
-passport.use(
-  new LocalStrategy(function(email, password, done) {
-    User.getUserByemail(email, function(err, user) {
-      if (err) throw err;
-      if (!user) {
-        return done(null, false, { message: "Unknown User" });
-      }
-
-      User.comparePassword(password, user.password, function(err, isMatch) {
-        if (err) throw err;
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: "Invalid password" });
-        }
-      });
+  Job.find()
+    .select(jobType)
+    .exec(function(err, doc) {
+      res.send(doc);
+      console.log(doc);
     });
-  })
-);
-
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-  console.log(user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function(err, user) {
+app.post("/getJobhome", function(req, res) {
+  var id = req.body.id;
+  Job.getJobById(id, function(err, user) {
     done(err, user);
   });
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
-    failureFlash: true
-  }),
-  function(req, res) {
-    res.redirect("/login");
-    console.log("this is the longin redirect " + res);
-  }
-);
+app.get("/login", function(req, res) {
+  var email = req.body.email;
+  User.findOne()
+  .select(email)
+  .exec(function(err, doc) {
+      res.send(doc);
+      console.log(doc);
+    });
+});
 
+app.get("/getAllJobs", function(req, res) {
+  var jobType = req.body;
+  Job.find()
+    .select(jobType)
+    .exec(function(err, doc) {
+      res.send(doc);
+      console.log(doc);
+    });
+});
 // Set Static Folder
 app.use(express.static("public"));
-
-// Express Session
-app.use(
-  session({
-    secret: "secret",
-    saveUninitialized: true,
-    resave: true
-  })
-);
-
-// Passport init
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Express Validator
 app.use(
@@ -225,66 +164,3 @@ var PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
-
-//THIS IS THE PHOT UP
-// Set The Storage Engine
-// app.use(multer({
-//   destination: './upload/',
-//   function(fieldname, filename){
-//     return filename;
-//   },
-// }));
-
-// app.post('/api/photo',function(req,res){
-//   var newItem = new I
-// })
-
-// // Init Upload
-// const upload = multer({
-//   storage: storage,
-//   limits:{fileSize: 1000000},
-//   fileFilter: function(req, file, cb){
-//       checkFileType(file, cb);
-//   }
-// }).single('myImage');
-
-// // Check File Type
-// function checkFileType(file, cb){
-//   // Allowed ext
-//   const filetypes = /jpeg|jpg|png|gif/;
-//   // Check ext
-//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-//   // Check mime
-//   const mimetype = filetypes.test(file.mimetype);
-
-//   if(mimetype && extname){
-//       return cb(null,true);
-//   } else {
-//       cb('Error: Images Only!');
-//   }
-// }
-// // Public Folder
-// app.use(express.static('./public'));
-
-// app.get('/', (req, res) => res.render('index'));
-
-// app.post('/upload', (req, res) => {
-//   upload(req, res, (err) => {
-//   if(err){
-//       res.render('index', {
-//           msg: err
-//       });
-//   } else {
-//       if(req.file == undefined){
-//           res.render('index', {
-//               msg: 'Error: No File Selected!'
-//           });
-//       } else {
-//           res.render('index', {
-//               msg: 'File Uploaded!',
-//               file: `uploads/${req.file.filename}`
-//           });
-//       }
-//   }
-// });
-// });
