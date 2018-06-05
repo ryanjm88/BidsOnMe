@@ -26,6 +26,35 @@ var Job = require("./models/job");
 // Init App
 var app = express();
 
+
+app.get('/', ensureAuthenticated, function(req, res){
+	res.redirect('home.html');
+});
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('home.html');
+	}
+}
+
+
+// Express Session
+app.use(
+  session({
+    secret: "secret",
+    saveUninitialized: true,
+    resave: true
+  })
+);
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // BodyParser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
