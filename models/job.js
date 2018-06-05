@@ -20,7 +20,7 @@ module.exports.createJob = function(newJob, callback) {
 };
 
 module.exports.getAllJobs = function(getJobs, callback) {
-var query = getJobs.find({}, null)
+var query = getJobs.find({jobType: jobType }, null)
 query.exec(function (err, docs) {});
 };
 
