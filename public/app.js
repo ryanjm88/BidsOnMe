@@ -186,7 +186,7 @@ $(document).ready(function() {
   $("#biddingCard").hide();
   
   $("#contractorSignIn").on("click", function() {
-    $("#biddingCard").show();
+    $("#availableJobsCard").show();
     $("#contractorLogin").hide();
     
     var jobType = "Roofing";
@@ -202,7 +202,6 @@ $(document).ready(function() {
       }
     });
     $("#availableJobsCard").show();
-    $("#biddingCard").show();
     console.log(contractorEmail);
     console.log(contractorPassword);
   });
