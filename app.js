@@ -70,6 +70,26 @@ app.post("/contractorUser", function(req, res) {
   });
 });
 
+// Connect Flash
+app.use(flash());
+
+// Global Vars
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  res.locals.user = req.user || null;
+  next();
+});
+
+app.get("/logout", function(req, res) {
+  consloe.log("req.flash "+req);
+  req.logout();
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/");
+});
+
+
 app.post("/postJob", function(req, res) {
   var jobType = req.body.jobType;
   var homeownerAddress = req.body.homeownerAddress;
@@ -137,6 +157,7 @@ passport.use(
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
+  console.log(user.id);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -154,14 +175,9 @@ app.post(
   }),
   function(req, res) {
     res.redirect("/login");
+    console.log("this is the longin redirect " + res);
   }
 );
-
-app.get("/logout", function(req, res) {
-  req.logout();
-  req.flash("success_msg", "You are logged out");
-  res.redirect("/");
-});
 
 // Set Static Folder
 app.use(express.static("public"));
@@ -198,18 +214,6 @@ app.use(
     }
   })
 );
-
-// Connect Flash
-app.use(flash());
-
-// Global Vars
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  res.locals.user = req.user || null;
-  next();
-});
 
 app.use("/", routes);
 app.use("/users", users);
