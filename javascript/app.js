@@ -12,6 +12,7 @@ $(document).ready(function () {
     $("#homeownerForm").hide();
     $("#contractorForm").hide();
     $("#signupDiv2").hide();
+    $("#biddingCard").hide();
 
     $("#homeownerSignUp").on("click", function (event) {
         $("#contractorForm").hide();
@@ -97,6 +98,7 @@ $(document).ready(function () {
         console.log(jobDescription);
         console.log(jobPhoto);
 
+        $("#newButton").append("<button class='waves-effect waves-light btn' value=''>'bid'</button>")
         // appending new job info to homeowner table
         $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td><td>" + jobPhoto + "</td></tr>");
     });
@@ -105,6 +107,7 @@ $(document).ready(function () {
 
     $("#contractorSignIn").on("click", function () {
         $("#contractorLogin").hide();
+        $("#biddingCard").hide();
         $("#availableJobsCard").show();
 
         var contractorEmail = $("#contractorEmail").val().trim();
@@ -119,16 +122,17 @@ $(document).ready(function () {
 
         var query_data = getCollection('users').find({});
 
-$.ajax({
-  url: query_data ,
-  type: 'GET',
-  data: {
-     format: 'json'
-  },
-  dataType: 'jsonp',
-  success: function(data) {
-     console.log(data);
-  },     
-});
     });
+
+$("#bidButton").on("click", function()  {
+    $("#biddingCard").show();
+});
+
+$("#placeNewBid").on("click", function()    {
+    var newBid = $("#newBid").val().trim();
+    console.log(newBid);
+
+    $("#price").replaceWith(newBid);
+    $("#biddingCard").hide();
+});
 })
