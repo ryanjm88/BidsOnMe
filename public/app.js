@@ -4,6 +4,8 @@ $(document).ready(function() {
   });
   $("#contractorButton").on("click", function() {
     window.location = "contractor.html";
+    $("#biddingCard").hide();
+    $("#availableJobsCard").hide();
   });
   $("#signupButton").on("click", function() {
     window.location = "signup.html";
@@ -179,13 +181,14 @@ $(document).ready(function() {
         "</td></tr>"
     );
   });
-
+  
   $("#availableJobsCard").hide();
-
+  $("#biddingCard").hide();
+  
   $("#contractorSignIn").on("click", function() {
+    $("#biddingCard").show();
     $("#contractorLogin").hide();
-    $("#availableJobsCard").show();
-
+    
     var jobType = "Roofing";
     $.ajax({
       type: "GET",
@@ -198,8 +201,29 @@ $(document).ready(function() {
         console.log("from front to back" + JSON.stringify(doc));
       }
     });
-
+    $("#availableJobsCard").show();
+    $("#biddingCard").show();
     console.log(contractorEmail);
     console.log(contractorPassword);
   });
+});
+
+
+   
+
+$("#bidButton").on("click", function()  {
+    $("#biddingCard").show();
+    console.log($('child').index(this) + 2);
+
+    var jobid = $('child').index(this) + 2;
+    console.log(jobid);
+});
+
+$("#placeNewBid").on("click", function()    {
+    var newBid = $("#newBid").val().trim();
+    console.log(newBid);
+
+    $("#price").html(newBid);
+    $("#currentBid").html(newBid);
+    $("#biddingCard").hide();
 });

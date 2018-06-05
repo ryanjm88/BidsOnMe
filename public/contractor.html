@@ -41,19 +41,60 @@
                     <table class="striped" id="availableJobs">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Address</th>
                                 <th>Job Type</th>
                                 <th>Job Description</th>
                                 <th>Job Photo</th>
                                 <th>Current Bid</th>
                                 <th>Closing Date</th>
+                                <th>Bid Now?</th>
                             </tr>
                         </thead>
                         <tbody id="jobsPostedContractor">
+                            <tr value="">
+                                <td></td>
+                                <td>123 The Street</td>
+                                <td>Plumbing</td>
+                                <td>There's so much water!</td>
+                                <td>*link*</td>
+                                <td><div id="price">500</div></td>
+                                <td>06/15/2018</td>
+                                <td>
+                                    <a class="waves-effect waves-light btn" id="bidButton">bid</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card" id="biddingCard">
+                    <span class="card-title" id="jobsTableTitle">
+                        <img src="logo3.png" id="formLogo2">Want This Job?</span>
+                    <div id="placeAbid">
+                        <div class="row" id="biddingRow">
+                            <div class="input-field col s6">
+                                <h2>Current bid is:
+                                    <h2 id="currentBid">500</hs>
+                                </h2>
+                            </div>
+                            <div class="input-field col s6">
+                                <input placeholder="Your Bid" id="newBid" type="number" class="validate" value="">
+                                <label for="newBid"></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <a class="waves-effect waves-light btn" id="placeNewBid">place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </center>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
