@@ -96,7 +96,18 @@ app.post("/postJob", function(req, res) {
   });
 });
 
-app.post("/getJob", function(req, res){
+var jobType = "Remodeling";
+
+app.get("/getAllJobs", function(req,res){
+  req.jobType = "Remodeling";
+  Job.getJobByjobType(jobType, res);
+  console.log(jobType);
+  //further operations to perform
+});
+
+///this should be a join
+
+app.post("/getJobhome", function(req, res){
 var id = req.body.id;
 Job.getJobById(id, function (err, user) {
   done(err, user);

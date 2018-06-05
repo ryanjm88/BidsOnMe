@@ -19,9 +19,13 @@ module.exports.createJob = function(newJob, callback) {
       newJob.save(callback);
 };
 
-module.exports.getJobByJobname = function(Jobname, callback) {
-  var query = { Jobname: Jobname };
-  Job.findOne(query, callback);
+module.exports.getAllJobs = function(getJobs, callback) {
+var query = getJobs.find({}, null)
+query.exec(function (err, docs) {});
+};
+
+module.exports.getJobByjobType = function(jobType, callback) {
+  Job.findOne(jobType, callback);
 };
 
 module.exports.getJobById = function(id, callback) {

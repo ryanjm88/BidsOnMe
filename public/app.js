@@ -186,6 +186,18 @@ $(document).ready(function() {
     $("#contractorLogin").hide();
     $("#availableJobsCard").show();
 
+      var jobType = "Remodeling";
+    $.ajax({
+      type: "GET",
+      data: jobType,
+      contentType: "application/json",
+      url: "/getAllJobs",
+      success: function(data) {
+        console.log("success");
+        console.log(JSON.stringify(data));
+      }
+    });
+
     var contractorEmail = $("#contractorEmail")
       .val()
       .trim();
