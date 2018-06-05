@@ -10,7 +10,8 @@ var JobSchema = mongoose.Schema({
 	startingBid: { type: String },
 	closingDate: { type: String },
 	jobDescription: { type: String },
-	jobPhoto: { type: String}
+	jobPhoto: { type: String},
+	userID: {type: String}
   });
 
 var Job = (module.exports = mongoose.model("Job", JobSchema));

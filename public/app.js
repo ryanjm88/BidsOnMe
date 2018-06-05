@@ -112,7 +112,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: "GET",
-      data: email = "beep@beep.com",
+      data: (email = "beep@beep.com"),
       contentType: "application/json",
       url: "/login",
       success: function(doc) {
@@ -156,6 +156,23 @@ $(document).ready(function() {
         .val()
         .trim()
     };
+
+    $("#newButton").append(
+      "<button class='waves-effect waves-light btn' value=''>'bid'</button>"
+    );
+    // appending new job info to homeowner table
+    $("#jobsPosted").append(
+      "<tr><td>" +
+        job.homeownerAddress +
+        "</td><td>" +
+        job.jobType +
+        "</td><td>" +
+        job.jobDescription +
+        "</td><td>" +
+        job.jobPhoto +
+        "</td></tr>"
+    );
+
     console.log(job);
     $.ajax({
       type: "POST",
@@ -167,7 +184,6 @@ $(document).ready(function() {
         console.log(JSON.stringify(job));
       }
     });
-
 
     $("#jobsPosted").append(
       "<tr><td>" +
@@ -181,14 +197,14 @@ $(document).ready(function() {
         "</td></tr>"
     );
   });
-  
+
   $("#availableJobsCard").hide();
   $("#biddingCard").hide();
-  
+
   $("#contractorSignIn").on("click", function() {
     $("#availableJobsCard").show();
     $("#contractorLogin").hide();
-    
+
     var jobType = "Roofing";
     $.ajax({
       type: "GET",
@@ -207,22 +223,21 @@ $(document).ready(function() {
   });
 });
 
+$("#bidButton").on("click", function() {
+  $("#biddingCard").show();
+  console.log($("child").index(this) + 2);
 
-   
-
-$("#bidButton").on("click", function()  {
-    $("#biddingCard").show();
-    console.log($('child').index(this) + 2);
-
-    var jobid = $('child').index(this) + 2;
-    console.log(jobid);
+  var jobid = $("child").index(this) + 2;
+  console.log(jobid);
 });
 
-$("#placeNewBid").on("click", function()    {
-    var newBid = $("#newBid").val().trim();
-    console.log(newBid);
+$("#placeNewBid").on("click", function() {
+  var newBid = $("#newBid")
+    .val()
+    .trim();
+  console.log(newBid);
 
-    $("#price").html(newBid);
-    $("#currentBid").html(newBid);
-    $("#biddingCard").hide();
+  $("#price").html(newBid);
+  $("#currentBid").html(newBid);
+  $("#biddingCard").hide();
 });

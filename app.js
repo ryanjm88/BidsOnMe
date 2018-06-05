@@ -78,6 +78,7 @@ app.post("/postJob", function(req, res) {
   var closingDate = req.body.closingDate;
   var jobDescription = req.body.jobDescription;
   var jobPhoto = req.body.jobPhoto;
+  var userID = "5b1720289ee8431077afe9cb";
 
   var newJob = new Job({
     jobType: jobType,
@@ -87,7 +88,8 @@ app.post("/postJob", function(req, res) {
     startingBid: startingBid,
     closingDate: closingDate,
     jobDescription: jobDescription,
-    jobPhoto: jobPhoto
+    jobPhoto: jobPhoto,
+    userID: userID
   });
   Job.createJob(newJob, function(err, newJob) {
     if (err) throw err;
