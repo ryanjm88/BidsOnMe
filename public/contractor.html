@@ -41,6 +41,7 @@
                     <table class="striped" id="availableJobs">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Address</th>
                                 <th>Job Type</th>
                                 <th>Job Description</th>
@@ -51,7 +52,8 @@
                             </tr>
                         </thead>
                         <tbody id="jobsPostedContractor">
-                            <tr>
+                            <tr value="">
+                                <td></td>
                                 <td>123 The Street</td>
                                 <td>Plumbing</td>
                                 <td>There's so much water!</td>
@@ -73,25 +75,15 @@
                     <span class="card-title" id="jobsTableTitle">
                         <img src="../images/logo3.png" id="formLogo2">Want This Job?</span>
                     <div id="placeAbid">
-                        <div class="row">
-                            <div class="input-field col s4">
-                            </div>
-                            <div class="input-field col s4">
+                        <div class="row" id="biddingRow">
+                            <div class="input-field col s6">
                                 <h4>Current bid is:
-                                    <div id="currentBid">500</div>
+                                    <h4 id="currentBid">500</h4>
                                 </h4>
                             </div>
-                            <div class="input-field col s4">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s4">
-                            </div>
-                            <div class="input-field col s4">
+                            <div class="input-field col s6">
                                 <input placeholder="Your Bid" id="newBid" type="number" class="validate" value="">
                                 <label for="newBid"></label>
-                            </div>
-                            <div class="input-field col s4">
                             </div>
                         </div>
                         <div class="row">

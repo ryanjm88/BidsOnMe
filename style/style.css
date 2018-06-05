@@ -229,6 +229,14 @@ h1{
     margin-top: 2%; 
 }
 
+#biddingRow {
+    margin: 5%;
+}
+
+#currentBid {
+    font-weight: bold;
+}
+
 #bidWords   {
     display: inline;
 }
@@ -236,4 +244,17 @@ h1{
 #placeNewBid    {
     margin: 2%;
     width: 20%;
+}
+
+table tr:nth-child(1)  {
+    counter-reset: rowNumber;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    margin-right: 10%;
 }

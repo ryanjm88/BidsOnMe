@@ -116,23 +116,22 @@ $(document).ready(function () {
         console.log(contractorEmail);
         console.log(contractorPassword);
 
-        var mongodb = require("mongodb");
-        
-        var mongo_connect = "mongodb://mongoUser:bidsonme0@ds133241.mlab.com:33241/heroku_g7962z42";
-
-        var query_data = getCollection('users').find({});
-
     });
 
 $("#bidButton").on("click", function()  {
     $("#biddingCard").show();
+    console.log($('child').index(this) + 2);
+
+    var jobid = $('child').index(this) + 2;
+    console.log(jobid);
 });
 
 $("#placeNewBid").on("click", function()    {
     var newBid = $("#newBid").val().trim();
     console.log(newBid);
 
-    $("#price").replaceWith(newBid);
+    $("#price").html(newBid);
+    $("#currentBid").html(newBid);
     $("#biddingCard").hide();
 });
-})
+});
