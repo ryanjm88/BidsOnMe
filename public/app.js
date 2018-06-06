@@ -108,7 +108,6 @@ $(document).ready(function() {
         .val()
         .trim()
     };
-    console.log(logUser);
 
     $.ajax({
       type: "GET",
