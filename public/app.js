@@ -157,19 +157,24 @@ $(document).ready(function() {
         .trim()
     };
 
+    var home = job.homeownerAddress;
+    var typ = job.jobType;
+    var desc = job.jobDescription;
+    var pic = job.jobPhoto;
+
     $("#newButton").append(
       "<button class='waves-effect waves-light btn' value=''>'bid'</button>"
     );
     // appending new job info to homeowner table
     $("#jobsPosted").append(
       "<tr><td>" +
-        job.homeownerAddress +
+        home +
         "</td><td>" +
-        job.jobType +
+        typ +
         "</td><td>" +
-        job.jobDescription +
+        desc +
         "</td><td>" +
-        job.jobPhoto +
+        pic +
         "</td></tr>"
     );
 
@@ -185,17 +190,6 @@ $(document).ready(function() {
       }
     });
 
-    $("#jobsPosted").append(
-      "<tr><td>" +
-        homeownerAddress +
-        "</td><td>" +
-        jobType +
-        "</td><td>" +
-        jobDescription +
-        "</td><td>" +
-        jobPhoto +
-        "</td></tr>"
-    );
   });
 
   $("#availableJobsCard").hide();
