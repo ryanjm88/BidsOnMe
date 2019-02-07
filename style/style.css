@@ -3,6 +3,10 @@
     width: 30%;
 }
 
+#homeBody{
+    overflow: hidden!important;
+    max-height: 100vh!important;
+}
 
 body    {
     background-repeat: no-repeat;
@@ -25,17 +29,21 @@ h1{
     padding-bottom: -1%;
 }
 
+#homeCol{
+    margin: auto;
+    overflow: hidden;
+}
+
 #homeDiv    {
-    height: 550px;
-    width: 30%;
-    margin-top: 5%;
+    height: 400px;
+    width: 250px;
     opacity: 0.9;
+    margin: 0 auto;
+    margin-top: 120px;
 }
 
 #homePic    {
-    width: 90%;
     height: 58%;
-    margin-bottom: 1%;
 }
 
 .waves-effect   {
@@ -44,20 +52,14 @@ h1{
     font-weight: bold;
 }
 
-#homeownerButton    {
-    width: 95%;
-    margin-bottom: 3%;
-    font-size: 18px;
+#homeownerButton, #signupButton {
+    margin-bottom: 6px;
 }
 
-#contractorButton   {
+#contractorButton, #homeownerButton, #signupButton {
     width: 95%;
-    font-size: 18px;
-}
-
-#signupButton   {
-    width: 95%;
-    font-size: 18px;
+    font-size: inherit;
+    line-height: 12px!important;
 }
 
 #homeDivOr  {
