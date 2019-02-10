@@ -15,88 +15,91 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 
-<body background="../images/background3blur.jpg">
-    <center>
-        <form class="col s12" id="homeownerLogin">
-            <img src="../images/logo3.png" id="formLogo">
-            <span class="card-title">Welcome back!</span>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Email Address" id="homeownerEmail" type="email" class="validate" value="">
-                    <label for="homeownerEmail"></label>
+<body background="../images/background3blur.jpg" id="homeBody">
+    <div id="container">
+        <center>
+            <form class="col s12" id="homeownerLogin">
+                <div id="welcomeBackLine">
+                    <img src="../images/logo3.png" id="formLogo">
+                    <span class="card-title welcomeBack">Welcome back!</span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Password" id="homeownerPassword" type="password" class="validate" value="">
-                    <label for="homeownerPassword"></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Email Address" id="homeownerEmail" type="email" class="validate" value="">
+                        <label for="homeownerEmail"></label>
+                    </div>
                 </div>
-            </div>
-            <a class="waves-effect waves-light btn" id="homeownerSignIn">sign in</a>
-        </form>
-        <br>
-        <form class="col s12" id="homeownerPost">
-            <img src="../images/logo3.png" id="formLogo">
-            <span class="card-title">Post a Job</span>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Street Address" id="homeownerAddress" type="text" class="validate">
-                    <label for="homeownerAddress"></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Password" id="homeownerPassword" type="password" class="validate" value="">
+                        <label for="homeownerPassword"></label>
+                    </div>
                 </div>
-                <div class="input-field col s3">
-                    <input placeholder="City" id="homeownerCity" type="text" class="validate">
-                    <label for="homeownerCity"></label>
+                <a class="waves-effect waves-light btn" id="homeownerSignIn">sign in</a>
+            </form>
+            <br>
+            <form class="col s12" id="homeownerPost">
+                <img src="../images/logo3.png" id="formLogo">
+                <span class="card-title welcomeBack">Post a Job</span>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Street Address" id="homeownerAddress" type="text" class="validate">
+                        <label for="homeownerAddress"></label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input placeholder="City" id="homeownerCity" type="text" class="validate">
+                        <label for="homeownerCity"></label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input placeholder="ZIP Code" id="homeownerZip" type="text" class="validate">
+                        <label for="homeownerZip"></label>
+                    </div>
                 </div>
-                <div class="input-field col s3">
-                    <input placeholder="ZIP Code" id="homeownerZip" type="text" class="validate">
-                    <label for="homeownerZip"></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="jobType">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Roofing">Roofing</option>
+                            <option value="Remodeling">Remodeling</option>
+                            <option value="HVAC">HVAC</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Landscaping">Landscaping</option>
+                            <option value="Painting">Painting</option>
+                        </select>
+                        <label>Job Type</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <select id="jobType">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="Plumbing">Plumbing</option>
-                        <option value="Roofing">Roofing</option>
-                        <option value="Remodeling">Remodeling</option>
-                        <option value="HVAC">HVAC</option>
-                        <option value="Electrical">Electrical</option>
-                        <option value="Landscaping">Landscaping</option>
-                        <option value="Painting">Painting</option>
-                    </select>
-                    <label>Job Type</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Starting Bid" id="startingBid" type="number" class="validate" value="">
+                        <label for="startingBid"></label>
+                    </div>
+                    <div class="input-field col s6">
+                        <label>Bid Closing Date</label>
+                        <input placeholder="Bid Closing Date" id="closingDate" type="date" class="validate" value="">
+                        <label for="startingBid"></label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Starting Bid" id="startingBid" type="number" class="validate" value="">
-                    <label for="startingBid"></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Job Description" id="jobDescription" type="text" class="validate" value="">
+                        <label for="jobDescription"></label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <label>Bid Closing Date</label>
-                    <input placeholder="Bid Closing Date" id="closingDate" type="date" class="validate" value="">
-                    <label for="startingBid"></label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Job Description" id="jobDescription" type="text" class="validate" value="">
-                    <label for="jobDescription"></label>
-                </div>
-            </div>
-            <div class="row">
+                <div class="row">
                     <div class="input-field col s12">
                         <p>Upload a Photo (Optional) <input id="jobPhoto" type="file" class="validate" value=""></p>
                         <label for="jobPhoto"></label>
                     </div>
                 </div>
-            <a class="waves-effect waves-light btn" id="postJob">post</a>
-        </form>
-        <div class="row">
-            <div class="col s12">
-                <div class="card" id="homeownerJobsCard">
-                    <span class="card-title" id="jobsTableTitle">
-                        <img src="../images/logo3.png" id="formLogo2">Jobs Posted</span>
+                <a class="waves-effect waves-light btn" id="postJob">post</a>
+            </form>
+            <form class="col s12" id="homeownerJobsCard">
+                    <div id="welcomeBackLine">
+                        <img src="../images/logo3.png" id="formLogo">
+                        <span class="card-title welcomeBack">Jobs Posted</span>
+                    </div>
                     <table class="striped" id="homeownerJobs">
                         <thead>
                             <tr>
@@ -109,13 +112,44 @@
                             </tr>
                         </thead>
                         <tbody id="jobsPosted">
+                            <tr>
+                                <td>
+                                    123 Main Street
+                                </td>
+                                <td>
+                                    Plumbing
+                                </td>
+                                <td>
+                                    There's so much water!
+                                </td>
+                                <td>
+                                    *link*
+                                </td>
+                                <td>
+                                    Bob's House o' Fun
+                                </td>
+                                <td>
+                                    $300
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    418 Hillenburg Avenue
+                                </td>
+                                <td>
+                                    HVAC
+                                </td>
+                                <td>
+                                    My house is so hot!
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-    </center>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+            </form>
+        </center>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script type="text/javascript" src="../javascript/app.js"></script>
 </body>

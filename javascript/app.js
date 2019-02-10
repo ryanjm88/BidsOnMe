@@ -1,12 +1,12 @@
 $(document).ready(function () {
     $("#homeownerButton").on("click", function () {
-        window.location = "homeowner.html";
+        window.location = "./public/homeowner.html";
     });
     $("#contractorButton").on("click", function () {
-        window.location = "contractor.html";
+        window.location = "./public/contractor.html";
     });
     $("#signupButton").on("click", function () {
-        window.location = "signup.html";
+        window.location = "./public/signup.html";
     });
 
     $("#homeownerForm").hide();
@@ -130,8 +130,8 @@ $("#placeNewBid").on("click", function()    {
     var newBid = $("#newBid").val().trim();
     console.log(newBid);
 
-    $("#price").html(newBid);
-    $("#currentBid").html(newBid);
+    $("#price").html("$" + newBid);
+    $("#currentBid").html("$" + newBid);
     $("#biddingCard").hide();
 });
 });
