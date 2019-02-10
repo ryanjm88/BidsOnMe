@@ -82,6 +82,10 @@ h1{
     opacity: 0.9;
 }
 
+form{
+    padding-bottom: 10px;
+}
+
 #homeownerSignUp {
     margin: 1%;
     width: 98%;
