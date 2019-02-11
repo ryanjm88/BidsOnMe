@@ -77,53 +77,15 @@ h1{
 }
 
 #signupDiv  {
-    width: 35%;
-    margin-top: 2%;
+    background-color: white;
+    margin: 0rem;
+    width: 80%;
     opacity: 0.9;
+    margin-top: 2%; 
 }
 
 form{
     padding-bottom: 10px;
-}
-
-#homeownerSignUp {
-    margin: 1%;
-    width: 98%;
-}
-
-#contractorSignUp   {
-    margin: 1%;
-    margin-top: 0%;
-    width: 98%;
-}
-
-#signupTitle    {
-    font-size: 50px;
-    margin-bottom: 0%;
-}
-
-#homeownerForm  {
-    background-color: white;
-    margin: 0rem;
-    width: 80%;
-    opacity: 0.9;
-}
-
-#submitHomeowner    {
-    margin: 2%;
-    width: 20%;
-}
-
-#submitContractor   {
-    margin: 2%;
-    width: 20%;
-}
-
-#contractorForm  {
-    background-color: white;
-    margin: 0rem;
-    width: 80%;
-    opacity: 0.9;
 }
 
 #homeownerPost  {
@@ -164,9 +126,17 @@ form{
     display: inline;
 }
 
-#homeownerSignIn, #postJob, #contractorSignIn, #bidButton, #placeNewBid   {
+#homeownerSignIn, #postJob, #contractorSignIn, #bidButton, #placeNewBid, #submitHomeowner, #submitContractor  {
     margin: 2%;
     width: 150px;
+}
+
+#homeownerSignUp{
+    width: 100%;
+}
+
+#contractorSignUp{
+    width: 100%;
 }
 
 #bidButton{
@@ -208,7 +178,7 @@ form{
     color: #646464;
 }
 
-#homeownerJobsCard  {
+#homeownerJobsCard, #homeownerForm, #contractorForm, #signupDiv2 {
     background-color: white;
     margin: 0rem;
     width: 80%;
@@ -229,12 +199,6 @@ form{
     margin-top: -15px;
     vertical-align: middle;
     margin-right: 2%;
-}
-
-#signupDiv2  {
-    width: 35%;
-    margin-top: 2%;
-    opacity: 0.9;
 }
 
 #formLogo3  {
@@ -272,6 +236,11 @@ form{
 
 #bidWords   {
     display: inline;
+}
+
+#signupDiv2{
+    margin-top: 250px;
+    padding-top: 5px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -326,5 +295,19 @@ form{
         width: 26px;
         height: 26px;
         margin-top: -16px;
+    }
+
+    #homeownerSignUpCol, #contractorSignUpCol{
+        width: 100%;
+    }
+
+    #signupRow{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 523px){
+    #contractorSignUp{
+        margin-top: 10px;
     }
 }

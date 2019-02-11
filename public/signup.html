@@ -14,68 +14,87 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 
-<body background="../images/background2blur.jpg">
-    <center>
-        <div class="card horizontal" id="signupDiv">
-            <div class="card-stacked">
-                <span class="card-title" id="signupTitle"><img src="../images/logo3.png" id="formLogo3">Let's get started!</span>
-                <a class="waves-effect waves-light btn" id="homeownerSignUp">homeowner sign-up</a>
-                <a class="waves-effect waves-light btn" id="contractorSignUp">contractor sign-up</a>
-            </div>
-        </div>
-        <form class="col s12" id="homeownerForm">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
-                    <label for="first_name"></label>
+<body background="../images/background2blur.jpg" id="homeBody">
+    <div id="container">
+        <center>
+            <form class="col s12" id="signupDiv">
+                <div id="welcomeBackLine">
+                    <img src="../images/logo3.png" id="formLogo">
+                    <span class="card-title welcomeBack">Sign Up!</span>
                 </div>
-                <div class="input-field col s6">
-                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
-                    <label for="last_name"></label>
+                <div class="row" id="signupRow">
+                    <div class="col s6" id="homeownerSignUpCol">
+                        <a class="waves-effect waves-light btn" id="homeownerSignUp">homeowner sign-up</a>
+                    </div>
+                    <div class="col s6" id="contractorSignUpCol">
+                        <a class="waves-effect waves-light btn" id="contractorSignUp">contractor sign-up</a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Email Address" id="email" type="email" class="validate">
-                    <label for="email"></label>
+            </form>
+            <form class="col s12" id="homeownerForm">
+                <div id="welcomeBackLine">
+                    <img src="../images/logo3.png" id="formLogo">
+                    <span class="card-title welcomeBack">Homeowner</span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Password" id="password" type="password" class="validate">
-                    <label for="password"></label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="First Name" id="first_name" type="text" class="validate">
+                        <label for="first_name"></label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                        <label for="last_name"></label>
+                    </div>
                 </div>
-            </div>
-            <a class="waves-effect waves-light btn" id="submitHomeowner">submit</a>
-        </form>
-        <form class="col s12" id="contractorForm">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Contractor or Company Name" id="contractorName" type="text" class="validate">
-                    <label for="contractorName"></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Email Address" id="email" type="email" class="validate">
+                        <label for="email"></label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Email Address" id="contractorEmail" type="email" class="validate">
-                    <label for="contractorEmail"></label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Password" id="password" type="password" class="validate">
+                        <label for="password"></label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="Password" id="contractorPassword" type="password" class="validate">
-                    <label for="contractorPassword"></label>
+                <a class="waves-effect waves-light btn" id="submitHomeowner">submit</a>
+            </form>
+            <form class="col s12" id="contractorForm">
+                <div id="welcomeBackLine">
+                    <img src="../images/logo3.png" id="formLogo">
+                    <span class="card-title welcomeBack">Contractor</span>
                 </div>
-            </div>
-            <a class="waves-effect waves-light btn" id="submitContractor">submit</a>
-        </form>
-        <div class="card horizontal" id="signupDiv2">
-            <div class="card-stacked">
-                <span class="card-title" id="signupTitle"><img src="../images/logo3.png" id="formLogo3">Thanks for signing up!</span>
-            </div>
-        </div>
-    </center>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Contractor or Company Name" id="contractorName" type="text" class="validate">
+                        <label for="contractorName"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Email Address" id="contractorEmail" type="email" class="validate">
+                        <label for="contractorEmail"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Password" id="contractorPassword" type="password" class="validate">
+                        <label for="contractorPassword"></label>
+                    </div>
+                </div>
+                <a class="waves-effect waves-light btn" id="submitContractor">submit</a>
+            </form>
+            <form class="col s12" id="signupDiv2">
+                <div id="welcomeBackLine">
+                    <img src="../images/logo3.png" id="formLogo">
+                    <span class="card-title welcomeBack" id="thankYou">Thank you!</span>
+                </div>
+            </form>
+        </center>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script type="text/javascript" src="../javascript/app.js"></script>
 </body>
