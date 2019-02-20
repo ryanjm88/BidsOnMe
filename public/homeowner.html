@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BidsOnMe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="../images/logo3.png">
@@ -38,7 +38,18 @@
                 <a class="waves-effect waves-light btn" id="homeownerSignIn">sign in</a>
             </form>
             <br>
-            <form class="col s12" id="homeownerPost">
+            <form class="col s12" id="postOrView">
+                <div class="row" id="viewRow">
+                    <div class="col s6" id="homeownerSignUpCol">
+                        <a class="waves-effect waves-light btn" id="goToPosts">post a job</a>
+                    </div>
+                    <div class="col s6" id="contractorSignUpCol">
+                        <a class="waves-effect waves-light btn" id="viewJobs">view posted jobs</a>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <form class="col s12" id="homeownerPost" method="GET">
                 <img src="../images/logo3.png" id="formLogo">
                 <span class="card-title welcomeBack">Post a Job</span>
                 <div class="row">
@@ -96,60 +107,48 @@
                 <a class="waves-effect waves-light btn" id="postJob">post</a>
             </form>
             <form class="col s12" id="homeownerJobsCard">
-                    <div id="welcomeBackLine">
-                        <img src="../images/logo3.png" id="formLogo">
-                        <span class="card-title welcomeBack">Jobs Posted</span>
-                    </div>
-                    <table class="striped" id="homeownerJobs">
-                        <thead>
-                            <tr>
-                                <th>Address</th>
-                                <th>Job Type</th>
-                                <th>Job Description</th>
-                                <th>Photo Link</th>
-                                <th>Winning Contractor</th>
-                                <th>Closing Bid</th>
-                            </tr>
-                        </thead>
-                        <tbody id="jobsPosted">
-                            <tr>
-                                <td>
-                                    123 Main Street
-                                </td>
-                                <td>
-                                    Plumbing
-                                </td>
-                                <td>
-                                    There's so much water!
-                                </td>
-                                <td>
-                                    *link*
-                                </td>
-                                <td>
-                                    Bob's House o' Fun
-                                </td>
-                                <td>
-                                    $300
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    418 Hillenburg Avenue
-                                </td>
-                                <td>
-                                    HVAC
-                                </td>
-                                <td>
-                                    My house is so hot!
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div id="welcomeBackLine">
+                    <img src="../images/logo3.png" id="formLogo">
+                    <span class="card-title welcomeBack">Jobs Posted</span>
+                </div>
+                <table class="striped" id="homeownerJobs">
+                    <thead>
+                        <tr>
+                            <th>Address</th>
+                            <th>Job Type</th>
+                            <th>Job Description</th>
+                            <th>Photo Link</th>
+                            <th>Winning Contractor</th>
+                            <th>Closing Bid</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jobsPosted">
+                        <tr>
+                            <td>
+                                123 Main Street
+                            </td>
+                            <td>
+                                Plumbing
+                            </td>
+                            <td>
+                                There's so much water!
+                            </td>
+                            <td>
+                                *link*
+                            </td>
+                            <td>
+                                Bob's House o' Fun
+                            </td>
+                            <td id="OGprice">
+                                $500
+                            </td>
+                    </tbody>
+                </table>
             </form>
         </center>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script type="text/javascript" src="../javascript/app.js"></script>
 </body>

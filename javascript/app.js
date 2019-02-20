@@ -16,14 +16,17 @@ $(document).ready(function () {
 
     $("#homeownerSignUp").on("click", function (event) {
         $("#contractorForm").hide();
+        $("#signupDiv").hide();
         $("#homeownerForm").show();
     });
 
     $("#contractorSignUp").on("click", function (event) {
         $("#homeownerForm").hide();
+        $("#signupDiv").hide();
         $("#contractorForm").show();
     });
 
+    $("#postOrView").hide();
     $("#homeownerPost").hide();
     $("#homeownerJobsCard").hide();
 
@@ -63,11 +66,22 @@ $(document).ready(function () {
 
     // homeowner member sign in
     $("#homeownerSignIn").on("click", function () {
-        $("#homeownerPost").show();
+        $("#postOrView").show();
+        $("#homeownerPost").hide();
         $("#homeownerJobsCard").hide();
         $("#homeownerLogin").hide();
         console.log($("#homeownerEmail").val().trim());
         console.log($("#homeownerPassword").val().trim());
+    });
+
+    $("#goToPosts").on("click", function () {
+        $("#postOrView").hide();
+        $("#homeownerPost").show();
+    });
+
+    $("#viewJobs").on("click", function () {
+        $("#postOrView").hide();
+        $("#homeownerJobsCard").show();
     });
 
     $('select').formSelect();
@@ -79,6 +93,7 @@ $(document).ready(function () {
     // homeowner new job post info
     $(document).on('click', "#postJob", function () {
         $("#homeownerJobsCard").show();
+        $("#homeownerPost").hide();
 
         var jobType = $("#jobType").val().trim();
         var homeownerAddress = $("#homeownerAddress").val().trim();
@@ -100,7 +115,15 @@ $(document).ready(function () {
 
         $("#newButton").append("<button class='waves-effect waves-light btn' value=''>'bid'</button>")
         // appending new job info to homeowner table
-        $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td><td>" + jobPhoto + "</td></tr>");
+
+        $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td><td>" + jobPhoto + "</td><td>" + "</td><td>" + "</tr>");
+
+        localStorage.setItem('jobType', jobType);
+        localStorage.setItem('homeAddy', homeownerAddress);
+        localStorage.setItem('jobDesc', jobDescription);
+        localStorage.setItem('jobPic', jobPhoto);
+        localStorage.setItem('jobDate', closingDate);
+        localStorage.setItem('jobPrice', startingBid);
     });
 
     $("#availableJobsCard").hide();
@@ -116,22 +139,87 @@ $(document).ready(function () {
         console.log(contractorEmail);
         console.log(contractorPassword);
 
+        var conJobType = localStorage.getItem('jobType');
+        var conHomeAddy = localStorage.getItem('homeAddy');
+        var conJobDesc = localStorage.getItem('jobDesc');
+        var conJobPic = localStorage.getItem('jobPic');
+        var conJobDate = localStorage.getItem('jobDate');
+        var conJobPrice = localStorage.getItem('jobPrice');
+
+        var newJobButton = document.createElement("a");
+        newJobButton.setAttribute("class", "waves-effect waves-light btn");
+        newJobButton.setAttribute("id", "newJobBtn");
+        newJobButton.setAttribute("value", "");
+        // newJobButton.setAttribute("type", "button");
+
+        
+        $("#jobsPostedContractor").append("<tr><td>" + conHomeAddy + "</td><td>" + conJobType + "</td><td>" + conJobDesc + "</td><td>" + conJobPic + "</td><td id='newConPrice'>" + "$" + conJobPrice + "</td><td>" + conJobDate + "</td><td id='bidCell'>" + "</tr>");
+
+        document.getElementById("bidCell").appendChild(newJobButton);
+        document.getElementById("newJobBtn").innerText = "bid";
     });
 
-$("#bidButton").on("click", function()  {
-    $("#biddingCard").show();
-    console.log($('child').index(this) + 2);
+    $("#bidButton").on("click", function () {
+        $("#biddingCard").show();
+        console.log($('child').index(this) + 2);
 
-    var jobid = $('child').index(this) + 2;
-    console.log(jobid);
-});
+        var jobid = $('child').index(this) + 2;
+        console.log(jobid);
 
-$("#placeNewBid").on("click", function()    {
-    var newBid = $("#newBid").val().trim();
-    console.log(newBid);
 
-    $("#price").html("$" + newBid);
-    $("#currentBid").html("$" + newBid);
-    $("#biddingCard").hide();
-});
+        $("#placeNewBid").on("click", function (event) {
+            event.preventDefault();
+            var newBid = $("#newBid").val().trim();
+            console.log(newBid);
+
+            $("#price").html("$" + newBid);
+            $("#currentBid").html("$" + newBid);
+            $("#biddingCard").hide();
+
+            localStorage.setItem("newerBid", newBid);
+        });
+    });
+
+    $("#viewJobs").on("click", function () {
+
+        var storedPrice = localStorage.getItem("newerBid");
+        console.log(storedPrice);
+
+        $("#OGprice").html("$" + storedPrice);
+
+
+    });
+
+    $("#jobsPostedContractor").on("click", "#newJobBtn", function (event) {
+        event.preventDefault();
+        $("#biddingCard").show();
+        console.log("test");
+
+        var conJobPrice = localStorage.getItem('jobPrice');
+        console.log(conJobPrice);
+
+        $("#currentBid").html("$" + conJobPrice);
+
+        $("#placeNewBid").on("click", function (event) {
+            event.preventDefault();
+            $("#biddingCard").hide();
+
+            var secondNewBid = $("#newBid").val().trim();
+            console.log(secondNewBid);
+
+            $("#newConPrice").html("$" + secondNewBid);
+
+            localStorage.setItem('jobPrice', secondNewBid);
+
+        })
+    });
+
+    var conHomeAddy = localStorage.getItem('homeAddy');
+    var conJobType = localStorage.getItem('jobType');
+    var conJobDesc = localStorage.getItem('jobDesc');
+    var conJobPic = localStorage.getItem('jobPic');
+    var conJobDate = localStorage.getItem('jobDate');
+    var finalPrice = localStorage.getItem('jobPrice');
+
+    $("#jobsPosted").append("<tr><td>" + conHomeAddy + "</td><td>" + conJobType + "</td><td>" + conJobDesc + "</td><td>" + conJobPic + "</td><td id='newConPrice'></td><td>" + "$" + finalPrice + "</td>" + "</tr>");
 });

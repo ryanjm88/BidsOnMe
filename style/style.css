@@ -81,7 +81,15 @@ h1{
     margin: 0rem;
     width: 80%;
     opacity: 0.9;
-    margin-top: 2%; 
+    margin-top: 200px; 
+}
+
+#postOrView{
+    background-color: white;
+    margin: 0rem;
+    width: 80%;
+    opacity: 0.9;
+    margin-top: 250px;
 }
 
 form{
@@ -131,11 +139,7 @@ form{
     width: 150px;
 }
 
-#homeownerSignUp{
-    width: 100%;
-}
-
-#contractorSignUp{
+#homeownerSignUp, #contractorSignUp, #goToPosts, #viewJobs{
     width: 100%;
 }
 
@@ -154,8 +158,23 @@ form{
     justify-content: center;
 }
 
+#placeAbid{
+    border: 1px solid #fe855b;
+    box-shadow: 1px 1px 6px #646464;
+    width: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+table{
+    border: 1px solid #fe855b;
+    box-shadow: 1px 1px 6px #646464;
+}
+
+
+
 #newBid{
-    width: 200px!important;
+    width: 150px!important;
 }
 
 #contractorLogin    {
@@ -225,10 +244,6 @@ form{
     margin-top: 2%; 
 }
 
-#biddingRow {
-    margin: 5%;
-}
-
 #currentBid {
     font-weight: bold;
     font-size: 20px;
@@ -243,14 +258,30 @@ form{
     padding-top: 5px;
 }
 
+#newJobBtn{
+    display: block;
+    margin: auto;
+    width: 150px;
+}
+
+#viewRow{
+    margin: auto;
+    padding-top: 10px;
+}
+
 @media only screen and (max-width: 767px) {
     .welcomeBack {
         font-size: 26px;
     }
 
     th{
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bold;
+    }
+
+    table{
+        border: unset;
+    box-shadow: unset;
     }
 
     table, thead, tbody, th, td, tr { 
@@ -260,19 +291,21 @@ form{
     thead tr { 
 		position: absolute;
 		top: -9999px;
-		left: -9999px;
-    }
+        left: -9999px; 
+        }
     
-    tr { 
-        border: 1px solid #fe855b; 
+    tr{ 
+        border: 1px solid #fe855b;
+        box-shadow: 1px 1px 6px #646464; 
     }
 
     tr:last-child{
         border-bottom: 1px solid #fe855b!important;
+        box-shadow: 1px 1px 6px #646464;
     }
 
     td { 
-        font-size: 12px;
+        font-size: 14px;
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative; 
@@ -301,13 +334,18 @@ form{
         width: 100%;
     }
 
-    #signupRow{
+    #signupRow, #viewRow {
         display: flex;
+        margin-bottom: 0px!important;
     }
 }
 
 @media only screen and (max-width: 523px){
     #contractorSignUp{
         margin-top: 10px;
+    }
+
+    #placeAbid{
+        width: 220px;
     }
 }
