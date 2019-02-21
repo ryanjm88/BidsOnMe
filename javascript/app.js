@@ -115,8 +115,8 @@ $(document).ready(function () {
 
         $("#newButton").append("<button class='waves-effect waves-light btn' value=''>'bid'</button>")
         // appending new job info to homeowner table
-
-        $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td><td>" + jobPhoto + "</td><td>" + "</td><td>" + "</tr>");
+        $("#jobsPosted").children().last().remove();
+       $("#jobsPosted").append("<tr><td>" + homeownerAddress + "</td><td>" + jobType + "</td><td>" + jobDescription + "</td><td>" + jobPhoto + "</td><td>" + "</td><td>" + "</tr>");
 
         localStorage.setItem('jobType', jobType);
         localStorage.setItem('homeAddy', homeownerAddress);
@@ -150,8 +150,6 @@ $(document).ready(function () {
         newJobButton.setAttribute("class", "waves-effect waves-light btn");
         newJobButton.setAttribute("id", "newJobBtn");
         newJobButton.setAttribute("value", "");
-        // newJobButton.setAttribute("type", "button");
-
         
         $("#jobsPostedContractor").append("<tr><td>" + conHomeAddy + "</td><td>" + conJobType + "</td><td>" + conJobDesc + "</td><td>" + conJobPic + "</td><td id='newConPrice'>" + "$" + conJobPrice + "</td><td>" + conJobDate + "</td><td id='bidCell'>" + "</tr>");
 
@@ -183,6 +181,8 @@ $(document).ready(function () {
     $("#viewJobs").on("click", function () {
 
         var storedPrice = localStorage.getItem("newerBid");
+
+        if (storedPrice === null)
         console.log(storedPrice);
 
         $("#OGprice").html("$" + storedPrice);
@@ -221,5 +221,5 @@ $(document).ready(function () {
     var conJobDate = localStorage.getItem('jobDate');
     var finalPrice = localStorage.getItem('jobPrice');
 
-    $("#jobsPosted").append("<tr><td>" + conHomeAddy + "</td><td>" + conJobType + "</td><td>" + conJobDesc + "</td><td>" + conJobPic + "</td><td id='newConPrice'></td><td>" + "$" + finalPrice + "</td>" + "</tr>");
+   $("#jobsPosted").append("<tr><td>" + conHomeAddy + "</td><td>" + conJobType + "</td><td>" + conJobDesc + "</td><td>" + conJobPic + "</td><td id='newConPrice'></td><td>" + "$" + finalPrice + "</td>" + "</tr>");
 });
