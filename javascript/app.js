@@ -104,6 +104,9 @@ $(document).ready(function () {
         var jobDescription = $("#jobDescription").val().trim();
         var jobPhoto = $("#jobPhoto").val().trim();
 
+        var dateConverted = moment(closingDate).format("MM/DD/YYYY");
+        console.log(dateConverted);
+
         console.log(jobType);
         console.log(homeownerAddress);
         console.log(homeownerCity);
@@ -122,7 +125,7 @@ $(document).ready(function () {
         localStorage.setItem('homeAddy', homeownerAddress);
         localStorage.setItem('jobDesc', jobDescription);
         localStorage.setItem('jobPic', jobPhoto);
-        localStorage.setItem('jobDate', closingDate);
+        localStorage.setItem('jobDate', dateConverted);
         localStorage.setItem('jobPrice', startingBid);
     });
 

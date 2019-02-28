@@ -13,12 +13,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="../images/logo3.png">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body background="../images/background3blur.jpg" id="homeBody">
     <div id="container">
         <center>
             <form class="col s12" id="homeownerLogin">
+                <span class="bottomHover" id="signupSpan">This is where homeowners log in to access their
+                    accounts.</span>
                 <div id="welcomeBackLine">
                     <img src="../images/logo3.png" id="formLogo">
                     <span class="card-title welcomeBack">Welcome back!</span>
@@ -39,6 +42,9 @@
             </form>
             <br>
             <form class="col s12" id="postOrView">
+                <span class="infoText" id="signupSpan">Once logged in, homeowners will have the option to post a new
+                    home improvement job for contractors to bid on, or view jobs that they have already posted. Click on
+                    the post a job option first.</span>
                 <div class="row" id="viewRow">
                     <div class="col s6" id="homeownerSignUpCol">
                         <a class="waves-effect waves-light btn" id="goToPosts">post a job</a>
@@ -50,6 +56,9 @@
             </form>
             <br>
             <form class="col s12" id="homeownerPost" method="GET">
+                <span class="infoText" id="signupSpan">Homeowners will fill out specific information about jobs they
+                    want done in this form. When done, the user clicks the post button to view all jobs
+                    posted.</span>
                 <img src="../images/logo3.png" id="formLogo">
                 <span class="card-title welcomeBack">Post a Job</span>
                 <div class="row">
@@ -83,7 +92,8 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input placeholder="Starting Bid" id="startingBid" type="number" class="validate" value="">
+                        <input placeholder="Starting Bid Amount" id="startingBid" type="number" class="validate"
+                            value="">
                         <label for="startingBid"></label>
                     </div>
                     <div class="input-field col s6">
@@ -107,6 +117,12 @@
                 <a class="waves-effect waves-light btn" id="postJob">post</a>
             </form>
             <form class="col s12" id="homeownerJobsCard">
+                <span class="bottomHover" id="signupSpan">This view will lay out all jobs a homeowner has posted, both
+                    completed and ongoing. Once the bid has reached its closing date, the winning contractor's name will
+                    be displayed in the table. The closing bid price will also be displayed.
+                    <br>
+                    Return to the main landing page to log in the contractor view.
+                </span>
                 <div id="welcomeBackLine">
                     <img src="../images/logo3.png" id="formLogo">
                     <span class="card-title welcomeBack">Jobs Posted</span>

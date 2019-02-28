@@ -37,9 +37,8 @@ h1{
     padding-bottom: -1%;
 }
 
-#homeCol{
-    margin: auto;
-    overflow: hidden;
+#homeCard{
+    border-radius: 0px!important;
 }
 
 #homeDiv    {
@@ -48,6 +47,7 @@ h1{
     opacity: 0.9;
     margin: 0 auto;
     margin-top: 150px;
+    border-radius: 0px;
 }
 
 #homePic    {
@@ -81,7 +81,7 @@ h1{
     margin: 0rem;
     width: 80%;
     opacity: 0.9;
-    margin-top: 200px; 
+    margin-top: 250px; 
 }
 
 #postOrView{
@@ -101,6 +101,7 @@ form{
     margin: 0rem;
     width: 80%;
     opacity: 0.9;
+    margin-top: 110px;
 }
 
 .card-title {
@@ -123,7 +124,6 @@ form{
     width: 80%;
     opacity: 0.9;
     margin-top: 2%;
-    overflow: hidden;
 }
 
 .welcomeBack{
@@ -269,33 +269,82 @@ table{
     padding-top: 10px;
 }
 
-#homeCard .infoText{
+#homeCard .infoText, #signupDiv .infoText, #postOrView .infoText, #homeownerPost .infoText {
     visibility: hidden;
     width: 250px;
     background-color: #fe855b;
-    color: #646464;
+    color: #ffffff;
+    text-shadow: 1px 1px 6px #646464;
     text-align: center;
     border-radius: 0.25rem;
-    padding: 5px 0;
+    padding: 10px;
     position: absolute;
     bottom: 100%;
     z-index: 1;
     font-size: 16px;
 }
 
-#homeCard:hover .infoText{
+#homeownerLogin .bottomHover, 
+#homeownerJobsCard .bottomHover, 
+#contractorLogin .bottomHover, 
+#availableJobsCard .bottomHover,
+#biddingCard .bottomHover {
+    visibility: hidden;
+    background-color: #fe855b;
+    color: #ffffff;
+    text-shadow: 1px 1px 6px #646464;
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+}
+
+#signupSpan{
+    width: 100%!important;
+    left: 0%;
+}
+
+#homeCard:hover .infoText, 
+#signupDiv:hover .infoText, 
+#homeownerLogin:hover .bottomHover, 
+#postOrView:hover .infoText, 
+#homeownerPost:hover .infoText, 
+#homeownerJobsCard:hover .bottomHover, 
+#contractorLogin:hover .bottomHover, 
+#availableJobsCard:hover .bottomHover,
+#biddingCard:hover .bottomHover {
     visibility: visible;
 }
 
-#homeCard .infoText::after{
+#homeCard .infoText::after, 
+#signupDiv .infoText::after, #postOrView .infoText::after, #homeownerPost .infoText::after {
     content: " ";
     position: absolute;
     top: 100%; /* At the bottom of the tooltip */
     left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
+    transform: translateX(-50%);
+    border-width: 15px;
     border-style: solid;
     border-color: #fe855b transparent transparent transparent;
+}
+
+#homeownerLogin .bottomHover::after, 
+#homeownerJobsCard .bottomHover::after, 
+#contractorLogin .bottomHover::after, 
+#availableJobsCard .bottomHover::after,
+#biddingCard .bottomHover::after {
+    content: '';
+    position: absolute;
+	top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+	border: 15px solid transparent;
+    border-bottom-color: #fe855b;
+    border-top-color: #fe855b;
+	border-top: 0;
+    margin-top: -15px;
 }
 
 @media only screen and (max-width: 767px) {

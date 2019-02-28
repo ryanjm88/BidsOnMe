@@ -7,17 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BidsOnMe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="icon" href="../images/logo3.png">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body background="../images/background4blur.jpg" id="homeBody">
     <div id="container">
         <center>
             <form class="col s12" id="contractorLogin">
+                <span class="bottomHover" id="signupSpan">This is where contractors log in to access their
+                    accounts.</span>
                 <img src="../images/logo3.png" id="formLogo">
                 <span class="card-title welcomeBack">Welcome back!</span>
                 <div class="row">
@@ -35,6 +38,12 @@
                 <a class="waves-effect waves-light btn" id="contractorSignIn">sign in</a>
             </form>
             <form class="col s12" id="availableJobsCard">
+                <span class="bottomHover" id="signupSpan">Once logged in, contractors will be able to view jobs that
+                    homeowners have posted in their area. If interested in a job, a contractor can click the bid button
+                    to place an offer.
+                    <br>
+                    Click the bid button for the job you just posted in the homeowner view.
+                </span>
                 <div id="welcomeBackLine">
                     <img src="../images/logo3.png" id="formLogo">
                     <span class="card-title welcomeBack">Jobs Available</span>
@@ -69,6 +78,12 @@
                 </table>
             </form>
             <form class="col s12" id="biddingCard">
+                <span class="bottomHover" id="signupSpan">BidsOnMe works as a reverse bidding app, meaning that
+                    contractors bid lower than the price originally posted by the homeowner, with the lowest bidding
+                    contractor being awarded the job for the agreed amount.
+                    <br>
+                    Enter a bid slightly lower than the price you intially posted for your job and click the place button, then return to the jobs table in the homeowner view to see the new bid price.
+                </span>
                 <div id="welcomeBackLine">
                     <img src="../images/logo3.png" id="formLogo">
                     <span class="card-title welcomeBack">Want this job?</span>
@@ -93,8 +108,8 @@
             </form>
         </center>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script type="text/javascript" src="../javascript/app.js"></script>
 </body>
