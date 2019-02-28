@@ -183,15 +183,7 @@ $(document).ready(function () {
 
    $("#viewJobs").on("click", function () {
 
-     var storedPrice = localStorage.getItem("newerBid");
-
-       if (storedPrice == null){
-           $("#OGprice").text("$500");
-       }
-        console.log(storedPrice);
-
-        $("#OGprice").html("$" + storedPrice);
-
+        $("#OGprice").html("$500");
 
     });
 
