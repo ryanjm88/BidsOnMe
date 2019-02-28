@@ -8,6 +8,10 @@
     max-height: 100vh!important;
 }
 
+#mainBody{
+    
+}
+
 #container{
     overflow-x:hidden;
     width:100%;
