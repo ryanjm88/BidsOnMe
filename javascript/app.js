@@ -185,8 +185,8 @@ $(document).ready(function () {
 
      var storedPrice = localStorage.getItem("newerBid");
 
-       if (storedPrice === null){
-           $("#OGprice").html("$500");
+       if (storedPrice == null){
+           $("#OGprice").text("$500");
        }
         console.log(storedPrice);
 
