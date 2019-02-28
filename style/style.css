@@ -9,7 +9,7 @@
 }
 
 #mainBody{
-    
+    height: 200px!important;
 }
 
 #container{
@@ -51,6 +51,7 @@ h1{
     opacity: 0.9;
     margin: 0 auto;
     margin-top: 150px;
+    margin-bottom: auto;
     border-radius: 0px;
 }
 
