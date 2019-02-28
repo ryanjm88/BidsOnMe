@@ -181,17 +181,19 @@ $(document).ready(function () {
         });
     });
 
-   // $("#viewJobs").on("click", function () {
+   $("#viewJobs").on("click", function () {
 
-     //   var storedPrice = localStorage.getItem("newerBid");
+     var storedPrice = localStorage.getItem("newerBid");
 
-       // if (storedPrice === null)
-        //console.log(storedPrice);
+       if (storedPrice === null){
+           $("#OGprice").html("$500");
+       }
+        console.log(storedPrice);
 
-        //$("#OGprice").html("$" + storedPrice);
+        $("#OGprice").html("$" + storedPrice);
 
 
-    //});
+    });
 
     $("#jobsPostedContractor").on("click", "#newJobBtn", function (event) {
         event.preventDefault();
