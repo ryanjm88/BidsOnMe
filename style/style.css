@@ -274,7 +274,7 @@ table{
 }
 
 #homeCard .infoText, #signupDiv .infoText, #postOrView .infoText, #homeownerPost .infoText {
-    visibility: hidden;
+    opacity: 0;
     width: 250px;
     background-color: #fe855b;
     color: #ffffff;
@@ -286,6 +286,9 @@ table{
     bottom: 100%;
     z-index: 1;
     font-size: 16px;
+    transition: opacity 0.33s ease-in;
+    -moz-transition: opacity 0.33s ease-in;
+    -webkit-transition: opacity 0.33s ease-in;
 }
 
 #homeownerLogin .bottomHover, 
@@ -293,7 +296,7 @@ table{
 #contractorLogin .bottomHover, 
 #availableJobsCard .bottomHover,
 #biddingCard .bottomHover {
-    visibility: hidden;
+    opacity: 0;
     background-color: #fe855b;
     color: #ffffff;
     text-shadow: 1px 1px 6px #646464;
@@ -303,6 +306,9 @@ table{
     position: absolute;
     z-index: 1;
     top: 100%;
+    transition: opacity 0.33s ease-in;
+    -moz-transition: opacity 0.33s ease-in;
+    -webkit-transition: opacity 0.33s ease-in;
 }
 
 #signupSpan{
@@ -319,7 +325,7 @@ table{
 #contractorLogin:hover .bottomHover, 
 #availableJobsCard:hover .bottomHover,
 #biddingCard:hover .bottomHover {
-    visibility: visible;
+    opacity: 1;
 }
 
 #homeCard .infoText::after, 
